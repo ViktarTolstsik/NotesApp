@@ -68,10 +68,10 @@ namespace NotesApp.ViewModel.Helpers
             using (SQLiteConnection conn = new SQLiteConnection(dbFile))
             {
                 conn.CreateTable<T>();
-                conn.Table<T>();
+                items = conn.Table<T>().ToList();
             }
 
-            return result;
+            return items;
         }
     }
 }
