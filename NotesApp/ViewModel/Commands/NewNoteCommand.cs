@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NotesApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,12 +20,18 @@ namespace NotesApp.ViewModel.Commands
 
         public bool CanExecute(object? parameter)
         {
-            return true;
+            Notebook selectedNotebook = parameter as Notebook;
+            if (selectedNotebook != null)
+            {
+                return true;
+            }
+            return false;
         }
 
         public void Execute(object? parameter)
         {
-            //TODO
+            Notebook selectedNotebook = parameter as Notebook;
+            VM.CreateNote(selectedNotebook.Id);
         }
     }
 }
