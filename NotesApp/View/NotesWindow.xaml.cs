@@ -36,7 +36,7 @@ namespace NotesApp.View
             Grammar grammar = new Grammar(builder);
 
             recognizer.LoadGrammar(grammar);
-            recognizer.SetInputToDefaultAudioDevice();
+            recognizer.RequestRecognizerUpdate();
             recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
         }
 
@@ -58,8 +58,6 @@ namespace NotesApp.View
             if (!isRecognizing)
             {
                 recognizer.RecognizeAsync(RecognizeMode.Multiple);
-                richTextBoxContent.Document.Blocks.Add(new Paragraph(new Run("uiyu")));
-
                 isRecognizing = true;
             }
             else
