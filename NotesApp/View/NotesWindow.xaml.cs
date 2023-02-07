@@ -31,7 +31,7 @@ namespace NotesApp.View
 
         private void SpeechButton_Click(object sender, RoutedEventArgs e)
         {
-
+            //TODO Implement speech-to-text functionqlity via an open-source API (AssemblyAI?)
         }
 
         private void richTextBoxContent_TextChanged(object sender, TextChangedEventArgs e)
