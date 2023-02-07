@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Speech.Recognition;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,9 +22,29 @@ namespace NotesApp.View
     /// </summary>
     public partial class NotesWindow : Window
     {
+        SpeechRecognitionEngine recognizer;
         public NotesWindow()
         {
             InitializeComponent();
+
+            var currentCulture = CultureInfo.GetCultureInfo("en-US");
+            recognizer = new SpeechRecognitionEngine(currentCulture);
+
+            GrammarBuilder builder = new GrammarBuilder();
+            builder.Culture = currentCulture;
+            builder.AppendDictation();
+            Grammar grammar = new Grammar(builder);
+
+            recognizer.LoadGrammar(grammar);
+            recognizer.SetInputToDefaultAudioDevice();
+            recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
+        }
+
+        private void Recognizer_SpeechRecognized(object? sender, SpeechRecognizedEventArgs e)
+        {
+            string recognizedText = e.Result.Text;
+
+            richTextBoxContent.Document.Blocks.Add(new Paragraph(new Run(recognizedText)));
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -29,9 +52,21 @@ namespace NotesApp.View
             Application.Current.Shutdown();
         }
 
+        bool isRecognizing = false;
         private void SpeechButton_Click(object sender, RoutedEventArgs e)
         {
-            //TODO Implement speech-to-text functionqlity via an open-source API (AssemblyAI?)
+            if (!isRecognizing)
+            {
+                recognizer.RecognizeAsync(RecognizeMode.Multiple);
+                richTextBoxContent.Document.Blocks.Add(new Paragraph(new Run("uiyu")));
+
+                isRecognizing = true;
+            }
+            else
+            {
+                recognizer.RecognizeAsyncStop();
+                isRecognizing = false;
+            }
         }
 
         private void richTextBoxContent_TextChanged(object sender, TextChangedEventArgs e)
