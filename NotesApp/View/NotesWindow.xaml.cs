@@ -33,5 +33,18 @@ namespace NotesApp.View
         {
 
         }
+
+        private void richTextBoxContent_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int amountOfCharacters = new TextRange(richTextBoxContent.Document.ContentStart, richTextBoxContent.Document.ContentEnd).Text.Length;
+
+            statusTextBlock.Text = $"Document length: {amountOfCharacters} characters";
+        }
+
+        private void BoldButton_Click(object sender, RoutedEventArgs e)
+        {
+            richTextBoxContent.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Bold);
+
+        }
     }
 }
