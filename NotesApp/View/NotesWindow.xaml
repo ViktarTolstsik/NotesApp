@@ -51,13 +51,21 @@
             <ToolBar>
                 <Button Content="Speech"
                         Click="SpeechButton_Click"/>
-            </ToolBar>
-            <ToolBar>
                 <ToggleButton 
                     Content="B"
                     x:Name="boldButton"
                     FontWeight="Bold"
                     Click="BoldButton_Click"/>
+                <ToggleButton Content="I"
+                              x:Name="italicButton"
+                              FontStyle="Italic"
+                              Click="italicButton_Click"/>
+                <ToggleButton x:Name="underlineButton"
+                              Click="underlineButton_Click">
+                    <TextBlock Text="U"
+                               TextDecorations="Underline"/>
+                </ToggleButton>
+                              
             </ToolBar>
         </ToolBarTray>
         <Grid>

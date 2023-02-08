@@ -93,6 +93,43 @@ namespace NotesApp.View
         {
             var selectedWeight = richTextBoxContent.Selection.GetPropertyValue(FontWeightProperty);
             boldButton.IsChecked = (selectedWeight != DependencyProperty.UnsetValue) && selectedWeight.Equals(FontWeights.Bold);
+           
+            var selectedStyle = richTextBoxContent.Selection.GetPropertyValue(FontStyleProperty);
+            italicButton.IsChecked = (selectedStyle != DependencyProperty.UnsetValue) && selectedStyle.Equals(FontStyles.Italic);
+           
+            var selectedDecorations = richTextBoxContent.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
+            underlineButton.IsChecked = (selectedDecorations != DependencyProperty.UnsetValue) && selectedDecorations.Equals(TextDecorations.Underline);
+
+        }
+
+        private void italicButton_Click(object sender, RoutedEventArgs e)
+        {
+            bool isButtonChecked = ((ToggleButton)sender).IsChecked ?? false;
+
+            if (isButtonChecked)
+            {
+                richTextBoxContent.Selection.ApplyPropertyValue(Inline.FontStyleProperty, FontStyles.Italic);
+            }
+            else
+            {
+                richTextBoxContent.Selection.ApplyPropertyValue(Inline.FontStyleProperty, FontStyles.Normal);
+            }
+
+        }
+
+        private void underlineButton_Click(object sender, RoutedEventArgs e)
+        {
+            bool isButtonChecked = ((ToggleButton)sender).IsChecked ?? false;
+
+            if (isButtonChecked)
+            {
+                richTextBoxContent.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, TextDecorations.Underline);
+            }
+            else
+            {
+                richTextBoxContent.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, null);
+            }
+
         }
     }
 }
