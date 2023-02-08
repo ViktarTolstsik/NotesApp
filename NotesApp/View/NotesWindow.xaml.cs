@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -36,7 +37,7 @@ namespace NotesApp.View
             Grammar grammar = new Grammar(builder);
 
             recognizer.LoadGrammar(grammar);
-            recognizer.RequestRecognizerUpdate();
+            recognizer.SetInputToDefaultAudioDevice();
             recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
         }
 
@@ -76,8 +77,22 @@ namespace NotesApp.View
 
         private void BoldButton_Click(object sender, RoutedEventArgs e)
         {
-            richTextBoxContent.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Bold);
+            bool isButtonChecked = ((ToggleButton)sender).IsChecked ?? false;
 
+            if (isButtonChecked)
+            {
+                richTextBoxContent.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Bold);
+            }
+            else
+            {
+                richTextBoxContent.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Normal);
+            }
+        }
+
+        private void richTextBoxContent_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            var selectedWeight = richTextBoxContent.Selection.GetPropertyValue(FontWeightProperty);
+            boldButton.IsChecked = (selectedWeight != DependencyProperty.UnsetValue) && selectedWeight.Equals(FontWeights.Bold);
         }
     }
 }
