@@ -8,6 +8,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Xps;
 
 namespace NotesApp.ViewModel
 {
@@ -26,19 +28,35 @@ namespace NotesApp.ViewModel
 				GetNotes();
 			}
 		}
+		private Visibility	isVisible;
+
+		public Visibility IsVisible
+		{
+			get { return isVisible; }
+			set 
+			{
+				isVisible = value;
+                OnPropertyChanged("IsVisible");
+            }
+		}
+
 		public ObservableCollection<Note> Notes { get; set; }
 		public NewNotebookCommand NewNotebookCommand { get; set; }
 		public NewNoteCommand NewNoteCommand { get; set; }
+		public EditCommand EditCommand { get; set; }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+		public event PropertyChangedEventHandler? PropertyChanged;
 
         public NotesVM()
 		{
 			NewNoteCommand = new NewNoteCommand(this);
 			NewNotebookCommand = new NewNotebookCommand(this);
+			EditCommand = new EditCommand(this);
 
 			Notebooks = new ObservableCollection<Notebook>();
 			Notes = new ObservableCollection<Note>();
+
+			IsVisible = Visibility.Collapsed;
 
 			GetNotebooks();
 		}
@@ -62,7 +80,7 @@ namespace NotesApp.ViewModel
 				NotebookId = notebookId,
 				CreatedAt = DateTime.Now,
 				UpdatedAt = DateTime.Now,
-				Title = $"New note for {DateTime.Now.ToString()}"
+				Title = $"New note for {DateOnly.FromDateTime(DateTime.Now)}"
 			};
 
 			DatabaseHelper.Insert(newNote);
@@ -97,6 +115,10 @@ namespace NotesApp.ViewModel
 		private void OnPropertyChanged(string propertyName) 
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+		public void StartEditing()
+		{
+			IsVisible = Visibility.Visible;
 		}
     }
 }

@@ -36,7 +36,19 @@
                   ItemsSource="{Binding Notebooks}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <uc:NotebookControl Notebook="{Binding}"/>
+                    <Grid>
+                        <uc:NotebookControl Notebook="{Binding}">
+                            <uc:NotebookControl.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Rename"
+                                          Command="{Binding Source={StaticResource vm}, Path=EditCommand}"/>
+                                </ContextMenu>
+                            </uc:NotebookControl.ContextMenu>
+                        </uc:NotebookControl>
+                        <TextBox Text="{Binding Name}" 
+                                 Visibility="{Binding Source={StaticResource vm},Path=IsVisible}"
+                                 Height="20"/>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

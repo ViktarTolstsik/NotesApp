@@ -9,13 +9,13 @@
     <StackPanel>
         <TextBlock Text="{Binding Title}"
                    Foreground="Black"
-                   Margin="15"
-                   FontSize="15"
+                   Margin="10,15,15,5"
+                   FontSize="12"
                    FontWeight="Bold"
                    VerticalAlignment="Center"/>
         <TextBlock Text="{Binding UpdatedAt}"
                    Foreground="DodgerBlue"
-                   Margin="15,5,15,0"
+                   Margin="10,5,15,0"
                    FontSize="10"
                    FontWeight="Bold"
                    VerticalAlignment="Center"/>

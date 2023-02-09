@@ -9,8 +9,8 @@
     <Grid>
         <TextBlock Text="{Binding Name}"
                    Foreground="AliceBlue"
-                   Margin="15"
-                   FontSize="20"
+                   Margin="10"
+                   FontSize="15"
                    FontWeight="Bold"
                    VerticalAlignment="Center"/>
     </Grid>
