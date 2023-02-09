@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:NotesApp.View"
         xmlns:vm="clr-namespace:NotesApp.ViewModel"
         xmlns:uc="clr-namespace:NotesApp.View.UserControls"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="NotesWindow" Height="450" Width="800">
 
@@ -45,9 +46,16 @@
                                 </ContextMenu>
                             </uc:NotebookControl.ContextMenu>
                         </uc:NotebookControl>
-                        <TextBox Text="{Binding Name}" 
+                        <TextBox Text="{Binding Name, Mode=TwoWay}" 
                                  Visibility="{Binding Source={StaticResource vm},Path=IsVisible}"
-                                 Height="20"/>
+                                 Height="20">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="LostFocus">
+                                    <i:InvokeCommandAction Command="{Binding Source={StaticResource vm}, Path=EndEditingCommand}"
+                                                           CommandParameter="{Binding}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TextBox>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
