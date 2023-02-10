@@ -1,6 +1,9 @@
-﻿using System;
+﻿using NotesApp.ViewModel;
+using NotesApp.ViewModel.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Speech.Recognition;
 using System.Text;
@@ -22,11 +25,17 @@ namespace NotesApp.View
     /// Логика взаимодействия для NotesWindow.xaml
     /// </summary>
     public partial class NotesWindow : Window
+
     {
+        NotesVM viewModel;
+
         SpeechRecognitionEngine recognizer;
         public NotesWindow()
         {
             InitializeComponent();
+
+            viewModel = Resources["vm"] as NotesVM;
+            viewModel.SelectedNoteChanged += ViewModel_SelectedNoteChanged;
 
             var currentCulture = CultureInfo.GetCultureInfo("en-US");
             recognizer = new SpeechRecognitionEngine(currentCulture);
@@ -45,6 +54,24 @@ namespace NotesApp.View
 
             List<double> fontSizes = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 24, 28, 32 };
             fontSizeComboBox.ItemsSource = fontSizes;
+        }
+
+        private void ViewModel_SelectedNoteChanged(object? sender, EventArgs e)
+        {
+            richTextBoxContent.Document.Blocks.Clear();
+            if (viewModel.SelectedNote != null)
+            {
+                if (!string.IsNullOrEmpty(viewModel.SelectedNote.FileLocation))
+                {
+                    using (FileStream filestream = new FileStream(viewModel.SelectedNote.FileLocation, FileMode.Open))
+                    {
+                        var contents = new TextRange(richTextBoxContent.Document.ContentStart, richTextBoxContent.Document.ContentEnd);
+                        contents.Load(filestream, DataFormats.Rtf);
+                    };
+
+                }
+            }
+            
         }
 
         private void Recognizer_SpeechRecognized(object? sender, SpeechRecognizedEventArgs e)
@@ -154,6 +181,17 @@ namespace NotesApp.View
             {
                 richTextBoxContent.Selection.ApplyPropertyValue(Inline.FontSizeProperty, fontSizeComboBox.Text);
             }
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            string rtfFile = System.IO.Path.Combine(Environment.CurrentDirectory, $"{viewModel.SelectedNote.Id}.rtf");
+            viewModel.SelectedNote.FileLocation = rtfFile;
+            DatabaseHelper.Update(viewModel.SelectedNote);
+
+            FileStream fileStream = new FileStream(rtfFile, FileMode.Create);
+            var contents = new TextRange(richTextBoxContent.Document.ContentStart, richTextBoxContent.Document.ContentEnd);
+            contents.Save(fileStream, DataFormats.Rtf);
         }
     }
 }
