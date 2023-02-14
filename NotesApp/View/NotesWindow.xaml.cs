@@ -64,6 +64,8 @@ namespace NotesApp.View
             {
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.ShowDialog();
+
+                viewModel.GetNotebooks();
             }
         }
 
