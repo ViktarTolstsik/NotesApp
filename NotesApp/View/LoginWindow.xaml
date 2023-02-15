@@ -37,15 +37,15 @@
         <StackPanel Visibility="{Binding RegisterVis}"
                     Margin="15,0">
             <TextBlock Text="Username:"/>
-            <TextBox Text="{Binding User.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Name:"/>
-            <TextBox Text="{Binding User.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Last name:"/>
-            <TextBox Text="{Binding User.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Password:"/>
-            <TextBox Text="{Binding User.Password,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Text="{Binding Password,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Confirm password:"/>
-            <TextBox Text="{Binding User.ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Text="{Binding ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Button Command="{Binding RegisterCommand}"
                     CommandParameter="{Binding User}"
                     Margin="0,5"
