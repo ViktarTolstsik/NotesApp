@@ -14,7 +14,16 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid DataContext="{StaticResource vm}">
-        <StackPanel Visibility="{Binding LoginVis}">
+        <StackPanel Visibility="{Binding LoginVis}"
+                    Margin="15">
+            <TextBlock Text="Username:"/>
+            <TextBox Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Password:"/>
+            <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Command="{Binding LoginCommand}"
+                    CommandParameter="{Binding User}"
+                    Margin="0,5"
+                    Content="Login"/>
             <TextBlock Text="Register"
                        Foreground="DodgerBlue"
                        TextDecorations="Underline">
@@ -25,7 +34,22 @@
                 </i:Interaction.Triggers>
             </TextBlock>
         </StackPanel>
-        <StackPanel Visibility="{Binding RegisterVis}">
+        <StackPanel Visibility="{Binding RegisterVis}"
+                    Margin="15,0">
+            <TextBlock Text="Username:"/>
+            <TextBox Text="{Binding User.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Name:"/>
+            <TextBox Text="{Binding User.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Last name:"/>
+            <TextBox Text="{Binding User.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Password:"/>
+            <TextBox Text="{Binding User.Password,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Confirm password:"/>
+            <TextBox Text="{Binding User.ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Command="{Binding RegisterCommand}"
+                    CommandParameter="{Binding User}"
+                    Margin="0,5"
+                    Content="Login"/>
             <TextBlock Text="Login"
                        Foreground="DodgerBlue"
                        TextDecorations="Underline">

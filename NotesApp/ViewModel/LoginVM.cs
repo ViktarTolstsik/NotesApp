@@ -18,8 +18,52 @@ namespace NotesApp.ViewModel
 		public User	User
 		{
 			get { return user; }
-			set { user = value; }
+			set 
+			{ 
+				user = value;
+				OnPropertyChanged("User");
+			}
 		}
+
+		private string username;
+
+		public string Username
+		{
+			get { return username; }
+			set 
+			{ 
+				username = value;
+				User = new User 
+				{ 
+					Username= username,
+					Password = this.Password,
+                    Name = this.Name,
+                    LastName = this.LastName,
+                    ConfirmPassword = this.ConfirmPassword
+
+                };
+				OnPropertyChanged("Username");
+			}
+		}
+
+		private string password;
+
+		public string Password
+		{
+			get { return password; }
+			set 
+			{ 
+				password = value;
+                User = new User
+                {
+                    Password = password,
+                    Username = this.Username
+                };
+                OnPropertyChanged("Password");
+			}
+		}
+
+
 
 		private Visibility loginVis;
 
@@ -31,7 +75,7 @@ namespace NotesApp.ViewModel
 			set 
 			{ 
 				loginVis = value; 
-				OnPropertyChanged(nameof(LoginVis));
+				OnPropertyChanged("LoginVis");
 			}
 		}
 		private Visibility registerVis;
@@ -41,7 +85,7 @@ namespace NotesApp.ViewModel
             set
             {
                 registerVis = value;
-                OnPropertyChanged(nameof(RegisterVis));
+                OnPropertyChanged("RegisterVis");
             }
         }
 
@@ -58,6 +102,8 @@ namespace NotesApp.ViewModel
 			RegisterCommand = new RegisterCommand(this);
 			LoginCommand = new LoginCommand(this);
 			ShowRegisterCommand = new ShowRegisterCommand(this);
+
+			User = new User();
 		}
 
 		public void SwitchViews()
@@ -76,7 +122,17 @@ namespace NotesApp.ViewModel
             }
 		}
 
-		private void OnPropertyChanged(string propertyName)
+		public void Login()
+		{
+			//TODO
+		}
+
+        public void Register()
+        {
+            //TODO
+        }
+
+        private void OnPropertyChanged(string propertyName)
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
