@@ -49,7 +49,7 @@
             <Button Command="{Binding RegisterCommand}"
                     CommandParameter="{Binding User}"
                     Margin="0,5"
-                    Content="Login"/>
+                    Content="Register"/>
             <TextBlock Text="Login"
                        Foreground="DodgerBlue"
                        TextDecorations="Underline">

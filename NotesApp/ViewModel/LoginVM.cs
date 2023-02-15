@@ -34,9 +34,9 @@ namespace NotesApp.ViewModel
 			{ 
 				username = value;
 				User = new User 
-				{ 
-					Username= username,
-					Password = this.Password,
+				{
+                    Username = username,
+                    Password = this.Password,
                     Name = this.Name,
                     LastName = this.LastName,
                     ConfirmPassword = this.ConfirmPassword
@@ -56,18 +56,76 @@ namespace NotesApp.ViewModel
 				password = value;
                 User = new User
                 {
+                    Username = this.Username,
                     Password = password,
-                    Username = this.Username
+                    Name = this.Name,
+                    LastName = this.LastName,
+                    ConfirmPassword = this.ConfirmPassword
+
                 };
                 OnPropertyChanged("Password");
 			}
 		}
 
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                name = value;
+                User = new User
+                {
+                    Username = this.Username,
+                    Password = this.Password,
+                    Name = name,
+                    LastName = this.LastName,
+                    ConfirmPassword = this.ConfirmPassword
+                };
+                OnPropertyChanged("Name");
+            }
+        }
+
+        private string lastname;
+        public string LastName
+        {
+            get { return lastname; }
+            set
+            {
+                lastname = value;
+                User = new User
+                {
+                    Username = this.Username,
+                    Password = this.Password,
+                    Name = this.Name,
+                    LastName = lastname,
+                    ConfirmPassword = this.ConfirmPassword
+                };
+                OnPropertyChanged("LastName");
+            }
+        }
+
+        private string confirmPassword;
+        public string ConfirmPassword
+        {
+            get { return confirmPassword; }
+            set
+            {
+                confirmPassword = value;
+                User = new User
+                {
+                    Username = this.Username,
+                    Password = this.Password,
+                    Name = this.Name,
+                    LastName = this.LastName,
+                    ConfirmPassword = confirmPassword
+                };
+                OnPropertyChanged("ConfirmPassword");
+            }
+        }
 
 
-		private Visibility loginVis;
-
-        public event PropertyChangedEventHandler? PropertyChanged;
+        private Visibility loginVis;
 
         public Visibility LoginVis
 		{
@@ -89,9 +147,9 @@ namespace NotesApp.ViewModel
             }
         }
 
+        public event PropertyChangedEventHandler? PropertyChanged;
         public RegisterCommand RegisterCommand { get; set; }
-
-		public LoginCommand LoginCommand { get; set; }
+        public LoginCommand LoginCommand { get; set; }
 		public ShowRegisterCommand ShowRegisterCommand { get; set; }
 
 		public LoginVM()
