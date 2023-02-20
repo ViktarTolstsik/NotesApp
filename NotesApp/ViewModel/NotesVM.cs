@@ -78,7 +78,7 @@ namespace NotesApp.ViewModel
 			GetNotebooks();
 		}
 
-        public void CreateNotebook()
+        public async void CreateNotebook()
         {
 			Notebook newNotebook = new Notebook()
 			{
@@ -86,12 +86,12 @@ namespace NotesApp.ViewModel
 				UserId = App.UserId
             };
 
-            DatabaseHelper.Insert(newNotebook);
+            await DatabaseHelper.Insert(newNotebook);
 
 			GetNotebooks();
         }
 
-        public void CreateNote(int notebookId)
+        public async void CreateNote(int notebookId)
 		{
 			Note newNote = new Note()
 			{
@@ -101,7 +101,7 @@ namespace NotesApp.ViewModel
 				Title = $"New note for {DateOnly.FromDateTime(DateTime.Now)}"
 			};
 
-			DatabaseHelper.Insert(newNote);
+			await DatabaseHelper.Insert(newNote);
 
 			GetNotes();
 		}
