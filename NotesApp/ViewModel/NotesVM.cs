@@ -80,9 +80,10 @@ namespace NotesApp.ViewModel
 
         public void CreateNotebook()
         {
-            Notebook newNotebook = new Notebook()
-            {
-                Name = "New notebook"
+			Notebook newNotebook = new Notebook()
+			{
+				Name = "New notebook",
+				UserId = App.UserId
             };
 
             DatabaseHelper.Insert(newNotebook);
@@ -107,7 +108,7 @@ namespace NotesApp.ViewModel
 
 		public void GetNotebooks()
 		{
-			var notebooks = DatabaseHelper.Read<Notebook>();
+			var notebooks = DatabaseHelper.Read<Notebook>().Where(n => n.UserId == App.UserId).ToList();
 
 			Notebooks.Clear();
 			foreach(var notebook in notebooks) 
