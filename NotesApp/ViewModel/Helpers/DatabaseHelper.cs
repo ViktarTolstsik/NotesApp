@@ -84,15 +84,16 @@ namespace NotesApp.ViewModel.Helpers
 
         public static List<T> Read<T>() where T : new() //Parameterless constructor
         {
-            List<T> items;
+            //List<T> items;
 
-            using (SQLiteConnection conn = new SQLiteConnection(dbFile))
-            {
-                conn.CreateTable<T>();
-                items = conn.Table<T>().ToList();
-            }
+            //using (SQLiteConnection conn = new SQLiteConnection(dbFile))
+            //{
+            //    conn.CreateTable<T>();
+            //    items = conn.Table<T>().ToList();
+            //}
 
-            return items;
+            //return items;
+            using (var client = new Http)
         }
     }
 }

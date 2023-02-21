@@ -91,7 +91,7 @@ namespace NotesApp.ViewModel
 			GetNotebooks();
         }
 
-        public async void CreateNote(int notebookId)
+        public async void CreateNote(string notebookId)
 		{
 			Note newNote = new Note()
 			{
@@ -106,9 +106,9 @@ namespace NotesApp.ViewModel
 			GetNotes();
 		}
 
-		public void GetNotebooks()
+		public async void GetNotebooks()
 		{
-			var notebooks = DatabaseHelper.Read<Notebook>().Where(n => n.UserId == App.UserId).ToList();
+			var notebooks = (await DatabaseHelper.Read<Notebook>()).Where(n => n.UserId == App.UserId).ToList();
 
 			Notebooks.Clear();
 			foreach(var notebook in notebooks) 
@@ -117,11 +117,11 @@ namespace NotesApp.ViewModel
 			}
 		}
 
-        private void GetNotes()
+        private async void GetNotes()
         {
 			if (SelectedNotebook != null)
 			{
-				var notes = DatabaseHelper.Read<Note>().Where(n => n.NotebookId == SelectedNotebook.Id).ToList();
+				var notes = (await DatabaseHelper.Read<Note>()).Where(n => n.NotebookId == SelectedNotebook.Id).ToList();
 
 				Notes.Clear();
 				foreach (var note in notes)
