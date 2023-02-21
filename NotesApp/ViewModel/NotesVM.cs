@@ -80,7 +80,7 @@ namespace NotesApp.ViewModel
 
         public async void CreateNotebook()
         {
-			Notebook newNotebook = new Notebook()
+			Notebook newNotebook = new()
 			{
 				Name = "New notebook",
 				UserId = App.UserId
@@ -93,7 +93,7 @@ namespace NotesApp.ViewModel
 
         public async void CreateNote(string notebookId)
 		{
-			Note newNote = new Note()
+			Note newNote = new()
 			{
 				NotebookId = notebookId,
 				CreatedAt = DateTime.Now,
@@ -138,10 +138,10 @@ namespace NotesApp.ViewModel
 		{
 			IsVisible = Visibility.Visible;
 		}
-        public void StopEditing(Notebook notebook)
+        public async void StopEditing(Notebook notebook)
         {
             IsVisible = Visibility.Collapsed;
-			DatabaseHelper.Update(notebook);
+			await DatabaseHelper.Update(notebook);
 			GetNotebooks();
         }
     }
