@@ -54,7 +54,7 @@
                     <ColumnDefinition Width="25"/>
                     <ColumnDefinition Width="5"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="LOG IN"
+                <TextBlock Text="NOTEIFY"
                            Foreground="DarkGray"
                            FontSize="15"
                            FontFamily="Montserrat"
@@ -131,9 +131,7 @@
         <StackPanel Visibility="{Binding LoginVis}"
                     Margin="0,65,0,0"
                     Width="250">
-            <Image Source="/Images/logo.png"
-                   Height="70"/>
-            <TextBlock Text="NOTEIFY"
+            <TextBlock Text="SIGN IN"
                        Foreground="AntiqueWhite"
                        FontSize="25"
                        FontWeight="ExtraLight"
@@ -193,9 +191,7 @@
         <StackPanel Visibility="{Binding RegisterVis}"
                     Margin="0,65,0,0"
                     Width="250">
-            <Image Source="/Images/logo.png"
-                   Height="70"/>
-            <TextBlock Text="NOTEIFY"
+            <TextBlock Text="SIGN UP"
                        Foreground="AntiqueWhite"
                        FontSize="25"
                        FontWeight="ExtraLight"
