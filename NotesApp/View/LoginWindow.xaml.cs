@@ -32,6 +32,9 @@ namespace NotesApp.View
 
         private void ViewModel_Authenticated(object? sender, EventArgs e)
         {
+            NotesWindow notesWindow= new NotesWindow();
+            notesWindow.Show();
+
             Close();
         }
 

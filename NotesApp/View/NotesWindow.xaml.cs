@@ -60,10 +60,10 @@ namespace NotesApp.View
         {
             base.OnActivated(e);
 
-            if (string.IsNullOrEmpty(App.UserId))
+            if (!string.IsNullOrEmpty(App.UserId))
             {
-                LoginWindow loginWindow = new LoginWindow();
-                loginWindow.ShowDialog();
+                //LoginWindow loginWindow = new LoginWindow();
+                //loginWindow.ShowDialog();
 
                 viewModel.GetNotebooks();
             }
@@ -205,6 +205,15 @@ namespace NotesApp.View
             FileStream fileStream = new FileStream(rtfFile, FileMode.Create);
             var contents = new TextRange(richTextBoxContent.Document.ContentStart, richTextBoxContent.Document.ContentEnd);
             contents.Save(fileStream, DataFormats.Rtf);
+        }
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

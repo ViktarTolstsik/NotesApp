@@ -39,7 +39,7 @@
         <DockPanel DataContext="{StaticResource vm}">
             <Grid Height="40" Width="1000" DockPanel.Dock="Top">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -48,6 +48,75 @@
                         <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="5"/>
                     </Grid.ColumnDefinitions>
+                    <TextBlock Text="NOTEIFY"
+                           Foreground="DarkGray"
+                           FontSize="15"
+                           FontFamily="Montserrat"
+                           Grid.Column="0"
+                           VerticalAlignment="Center"
+                           Margin="10,0,0,0"/>
+                    <Button x:Name="btnMinimize"
+                        Grid.Column="1"
+                        BorderThickness="0"
+                        Content="-"
+                        Foreground="White"
+                        FontSize="16"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Click="btnMinimize_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="LightBlue"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF608CD9"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18"
+                                    Height="18"
+                                    CornerRadius="10"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="btnClose"
+                        Grid.Column="2"
+                        BorderThickness="0"
+                        Content="X"
+                        Foreground="White"
+                        FontSize="16"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Click="btnClose_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Tomato"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="DarkRed"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18"
+                                    Height="18"
+                                    CornerRadius="10"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
                 </Grid>
             </Grid>
             <!--<Menu DockPanel.Dock="Top">
