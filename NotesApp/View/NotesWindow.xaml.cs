@@ -54,6 +54,7 @@ namespace NotesApp.View
 
             List<double> fontSizes = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 24, 28, 32 };
             fontSizeComboBox.ItemsSource = fontSizes;
+            NoteToolBar.IsEnabled = false;
         }
 
         protected override void OnActivated(EventArgs e)
@@ -62,9 +63,6 @@ namespace NotesApp.View
 
             if (!string.IsNullOrEmpty(App.UserId))
             {
-                //LoginWindow loginWindow = new LoginWindow();
-                //loginWindow.ShowDialog();
-
                 viewModel.GetNotebooks();
             }
         }
@@ -83,6 +81,7 @@ namespace NotesApp.View
                     };
 
                 }
+                NoteToolBar.IsEnabled = true;
             }
             
         }
@@ -214,6 +213,13 @@ namespace NotesApp.View
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
     }
 }

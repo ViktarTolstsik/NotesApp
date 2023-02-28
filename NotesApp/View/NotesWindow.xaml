@@ -10,15 +10,16 @@
         mc:Ignorable="d"
         Title="NotesWindow" Height="600" Width="1000"
         WindowStyle="None"
-        ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown">
+        <!--ResizeMode="NoResize"-->
     <Window.Resources>
         <vm:NotesVM x:Key="vm"/>
     </Window.Resources>
     <Grid>
-        <Border CornerRadius="25" Width="1000">
+        <Border CornerRadius="25" Width="Auto">
             <Border CornerRadius="5"
                 BorderThickness="1"
                 Opacity="0.95">
@@ -37,7 +38,7 @@
             </Border>
         </Border>
         <DockPanel DataContext="{StaticResource vm}">
-            <Grid Height="40" Width="1000" DockPanel.Dock="Top">
+            <Grid Height="40" Width="Auto"  DockPanel.Dock="Top">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
@@ -130,17 +131,16 @@
                 <MenuItem Header="Exit" Click="MenuItem_Click"/>
             </MenuItem>
         </Menu>-->
-            <StatusBar DockPanel.Dock="Bottom"
-                       Margin="0,0,0,5">
+            <StatusBar DockPanel.Dock="Bottom">
                 <StatusBarItem>
                     <TextBlock x:Name="statusTextBlock"/>
                 </StatusBarItem>
             </StatusBar>
             <ListView DockPanel.Dock="Left"
-                  Width="180"
-                  Background="Transparent"
-                  SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                  ItemsSource="{Binding Notebooks}">
+                      Width="180"
+                      Background="Transparent"
+                      SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      ItemsSource="{Binding Notebooks}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -176,7 +176,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <ToolBarTray DockPanel.Dock="Top">
+            <ToolBarTray DockPanel.Dock="Top"
+                         x:Name="NoteToolBar">
                 <ToolBar>
                     <Button Content="Speech"
                         Click="SpeechButton_Click"/>

@@ -169,9 +169,13 @@
                     CommandParameter="{Binding User}"
                     Margin="0,5"
                     Content="Login"/>
+            <TextBlock Text="Don't have an account?"
+                       Foreground="AliceBlue"
+                       Margin="0,0,0,0"/>
             <TextBlock Text="Register"
                        Foreground="DodgerBlue"
-                       TextDecorations="Underline">
+                       TextDecorations="Underline"
+                       Margin="0,0,0,0">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonDown">
                         <i:InvokeCommandAction Command="{Binding ShowRegisterCommand}"/>
