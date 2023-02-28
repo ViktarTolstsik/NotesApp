@@ -14,7 +14,6 @@
         Background="Transparent"
         AllowsTransparency="True"
         MouseDown="Window_MouseDown">
-        <!--ResizeMode="NoResize"-->
     <Window.Resources>
         <vm:NotesVM x:Key="vm"/>
     </Window.Resources>
@@ -136,36 +135,73 @@
                     <TextBlock x:Name="statusTextBlock"/>
                 </StatusBarItem>
             </StatusBar>
-            <ListView DockPanel.Dock="Left"
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="Auto" MinHeight="500"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="btnNewNotebook"
+                        BorderThickness="0"
+                        Content="+"
+                        Foreground="White"
+                        FontSize="25"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Command="{Binding NewNotebookCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="LightBlue"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF608CD9"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="25"
+                                    Height="25"
+                                    CornerRadius="15"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <ListView DockPanel.Dock="Left"
                       Width="180"
                       Background="Transparent"
+                          Grid.Row="1"
                       SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      ItemsSource="{Binding Notebooks}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <uc:NotebookControl Notebook="{Binding}">
-                                <uc:NotebookControl.ContextMenu>
-                                    <ContextMenu>
-                                        <MenuItem Header="Rename"
+                      ItemsSource="{Binding Notebooks}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MaxHeight="500">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <uc:NotebookControl Notebook="{Binding}">
+                                    <uc:NotebookControl.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Rename"
                                           Command="{Binding Source={StaticResource vm}, Path=EditCommand}"/>
-                                    </ContextMenu>
-                                </uc:NotebookControl.ContextMenu>
-                            </uc:NotebookControl>
-                            <TextBox Text="{Binding Name, Mode=TwoWay}" 
+                                        </ContextMenu>
+                                    </uc:NotebookControl.ContextMenu>
+                                </uc:NotebookControl>
+                                <TextBox Text="{Binding Name, Mode=TwoWay}" 
                                  Visibility="{Binding Source={StaticResource vm},Path=IsVisible}"
                                  Height="20">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="LostFocus">
-                                        <i:InvokeCommandAction Command="{Binding Source={StaticResource vm}, Path=EndEditingCommand}"
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="LostFocus">
+                                            <i:InvokeCommandAction Command="{Binding Source={StaticResource vm}, Path=EndEditingCommand}"
                                                            CommandParameter="{Binding}"/>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </TextBox>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </TextBox>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
             <ListView DockPanel.Dock="Left"
                   Width="180"
                   SelectedValue="{Binding SelectedNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
