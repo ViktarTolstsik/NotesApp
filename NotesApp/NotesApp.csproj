@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <None Remove="Images\517256.jpg" />
+    <None Remove="Images\bullet.png" />
+    <None Remove="Images\bullet_alt.png" />
     <None Remove="Images\compress-alt.png" />
     <None Remove="Images\cross.png" />
     <None Remove="Images\cross_alt.png" />
@@ -36,6 +38,8 @@
     <Resource Include="Images\517256.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\bullet.png" />
+    <Resource Include="Images\bullet_alt.png" />
     <Resource Include="Images\compress-alt.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

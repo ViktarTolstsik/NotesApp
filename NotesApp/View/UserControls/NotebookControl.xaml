@@ -6,12 +6,33 @@
              xmlns:local="clr-namespace:NotesApp.View.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="300">
-    <Grid>
+    <UserControl.Resources>
+        <Style x:Key="NotebookControlStyle" TargetType="{x:Type Grid}">
+            <Setter Property=""
+            <ControlTemplate TargetType="{x:Type Grid}">
+            </ControlTemplate>
+        </Style>
+    </UserControl.Resources>
+    <Grid Style="{DynamicResource NotebookControlStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="•"
+                   Foreground="AliceBlue"
+                   Grid.Column="0"
+                   FontSize="18"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
         <TextBlock Text="{Binding Name}"
                    Foreground="AliceBlue"
                    Margin="10"
                    FontSize="15"
                    FontWeight="Bold"
-                   VerticalAlignment="Center"/>
+                   VerticalAlignment="Center"
+                   Grid.Column="1"/>
     </Grid>
 </UserControl>
