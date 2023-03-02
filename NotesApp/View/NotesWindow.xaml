@@ -37,7 +37,7 @@
             </Border>
         </Border>
         <DockPanel DataContext="{StaticResource vm}">
-            <Grid Height="40" Width="Auto"  DockPanel.Dock="Top">
+            <Grid Height="50" Width="Auto"  DockPanel.Dock="Top">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
@@ -50,8 +50,8 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="NOTEIFY"
                            Foreground="DarkGray"
-                           FontSize="15"
-                           FontFamily="Montserrat"
+                           FontSize="24"
+                           FontFamily="Century Gothic"
                            Grid.Column="0"
                            VerticalAlignment="Center"
                            Margin="10,0,0,0"/>
@@ -59,7 +59,7 @@
                         Grid.Column="1"
                         BorderThickness="0"
                         Cursor="Hand"
-                        Click="btnMinimize_Click">
+                        Click="btnMinimize_Click" Margin="-10,0,10,0">
                         <Button.Background>
                             <ImageBrush ImageSource="/Images/minimize.png" 
                                             Stretch="Uniform" 
