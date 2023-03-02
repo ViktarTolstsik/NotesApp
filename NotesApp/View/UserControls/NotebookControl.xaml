@@ -7,13 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="300">
     <UserControl.Resources>
-        <Style x:Key="NotebookControlStyle" TargetType="{x:Type Grid}">
-            <Setter Property=""
-            <ControlTemplate TargetType="{x:Type Grid}">
-            </ControlTemplate>
-        </Style>
     </UserControl.Resources>
-    <Grid Style="{DynamicResource NotebookControlStyle}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
