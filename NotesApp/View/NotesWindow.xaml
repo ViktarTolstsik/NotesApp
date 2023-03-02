@@ -58,22 +58,66 @@
                     <Button x:Name="btnMinimize"
                         Grid.Column="1"
                         BorderThickness="0"
-                        Content="-"
-                        Foreground="White"
-                        FontSize="16"
-                        FontFamily="Montserrat"
                         Cursor="Hand"
                         Click="btnMinimize_Click">
+                        <!--<Button.Background>
+                            <ImageBrush ImageSource="/Images/minimize.png" 
+                                    Stretch="Uniform" 
+                                    AlignmentX="Center">
+                                <ImageBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.8"/>
+                                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                                        <RotateTransform CenterX="0.5" CenterY="0.5"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ImageBrush.RelativeTransform>
+                            </ImageBrush>
+                        </Button.Background>-->
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="BurlyWood">
+                                            <!--<Setter.Value>
+                                                <ImageBrush ImageSource="/Images/minimize_alt.png" 
+                                                    Stretch="Uniform" 
+                                                    AlignmentX="Center">
+                                                    <ImageBrush.RelativeTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.8"/>
+                                                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                                                            <RotateTransform CenterX="0.5" CenterY="0.5"/>
+                                                            <TranslateTransform/>
+                                                        </TransformGroup>
+                                                    </ImageBrush.RelativeTransform>
+                                                </ImageBrush>
+                                            </Setter.Value>-->
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
                     </Button>
                     <Button x:Name="btnClose"
                         Grid.Column="2"
                         BorderThickness="0"
-                        Content="X"
-                        Foreground="White"
-                        FontSize="16"
-                        FontFamily="Montserrat"
                         Cursor="Hand"
                         Click="btnClose_Click">
+                        <Button.Background>
+                        <ImageBrush ImageSource="/Images/power.png" 
+                                    Stretch="Uniform" 
+                                    AlignmentX="Center">
+                            <ImageBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="1"/>
+                                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                                    <RotateTransform CenterX="0.5" CenterY="0.5"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </ImageBrush.RelativeTransform>
+                        </ImageBrush>
+                        </Button.Background>
                     </Button>
                 </Grid>
             </Grid>

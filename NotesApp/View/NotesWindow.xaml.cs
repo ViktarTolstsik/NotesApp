@@ -159,6 +159,7 @@ namespace NotesApp.View
             }
             else
             {
+                EditingCommands.ToggleBullets.Execute(null, richTextBoxContent);
                 richTextBoxContent.Selection.ApplyPropertyValue(Inline.FontStyleProperty, FontStyles.Normal);
             }
 

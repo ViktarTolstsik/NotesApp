@@ -9,7 +9,17 @@
 
   <ItemGroup>
     <None Remove="Images\517256.jpg" />
+    <None Remove="Images\compress-alt.png" />
+    <None Remove="Images\cross.png" />
+    <None Remove="Images\delete-document.png" />
+    <None Remove="Images\edit-alt.png" />
+    <None Remove="Images\expand.png" />
     <None Remove="Images\logo.png" />
+    <None Remove="Images\minimize.png" />
+    <None Remove="Images\minimize_alt.png" />
+    <None Remove="Images\plus.png" />
+    <None Remove="Images\power.png" />
+    <None Remove="Images\trash.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,9 +33,33 @@
     <Resource Include="Images\517256.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\compress-alt.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cross.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\delete-document.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\edit-alt.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\expand.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\minimize.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\minimize_alt.png" />
+    <Resource Include="Images\plus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\power.png" />
+    <Resource Include="Images\trash.png" />
   </ItemGroup>
 
 </Project>

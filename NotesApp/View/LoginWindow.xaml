@@ -102,7 +102,6 @@
                                 <ContentPresenter VerticalAlignment="Center"
                                                   HorizontalAlignment="Center"/>
                             </Border>
-                            
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
@@ -115,7 +114,6 @@
                         FontFamily="Montserrat"
                         Cursor="Hand"
                         Click="btnClose_Click">
-
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="Tomato"/>
