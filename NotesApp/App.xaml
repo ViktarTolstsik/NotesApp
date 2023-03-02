@@ -4,8 +4,6 @@
              xmlns:local="clr-namespace:NotesApp"
              StartupUri="View/LoginWindow.xaml">
     <Application.Resources>
-        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FF95FF02"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
         <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
         <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
