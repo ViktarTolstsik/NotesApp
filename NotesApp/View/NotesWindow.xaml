@@ -97,17 +97,6 @@
                     </Button>
                 </Grid>
             </Grid>
-            <!--<Menu DockPanel.Dock="Top">
-            <MenuItem Header="File">
-                <MenuItem Header="New Notebook"
-                          Command="{Binding NewNotebookCommand}"/>
-                <MenuItem Header="New Note"
-                          Command="{Binding NewNoteCommand}"
-                          CommandParameter="{Binding SelectedNotebook}"/>
-                <Separator/>
-                <MenuItem Header="Exit" Click="MenuItem_Click"/>
-            </MenuItem>
-        </Menu>-->
             <StatusBar DockPanel.Dock="Bottom">
                 <StatusBarItem>
                     <TextBlock x:Name="statusTextBlock"/>
@@ -139,7 +128,7 @@
                 <ListView DockPanel.Dock="Left"
                       Width="180"
                       Background="Transparent"
-                          Grid.Row="1"
+                      Grid.Row="1"
                       SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       ItemsSource="{Binding Notebooks}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MaxHeight="500">
                     <ListView.ItemTemplate>
@@ -171,17 +160,20 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
-                    <RowDefinition Height="Auto" MinHeight="500"/>
+                    <RowDefinition Height="Auto" MinHeight="498"/>
                 </Grid.RowDefinitions>
-                <Button x:Name="btnNewNote"
+                <Button Style="{DynamicResource NewNoteButtonStyle}" x:Name="btnNewNote"
+                        Grid.Row="0"
+                        Content="+"
                         BorderThickness="0"
                         FontFamily="Montserrat"
                         Cursor="Hand"
-                        Command="{Binding NewNoteCommand}">
-                    <Button.Background>
+                        Command="{Binding NewNoteCommand}"
+                        CommandParameter="{Binding SelectedNotebook}">
+                        <Button.Background>
                         <ImageBrush ImageSource="/Images/plus.png" 
                                             Stretch="Uniform" 
-                                            AlignmentX="Center">
+                                            AlignmentX="Center" TileMode="None">
                             <ImageBrush.RelativeTransform>
                                 <TransformGroup>
                                     <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.65" ScaleY="0.65"/>
@@ -204,8 +196,9 @@
                 </ListView>
             </Grid>
             <ToolBarTray DockPanel.Dock="Top"
-                         x:Name="NoteToolBar">
-                <ToolBar>
+                         x:Name="NoteToolBar"
+                         Height="40" Background="White">
+                <ToolBar Padding="0,5,10,5" Foreground="Black" Background="#FFBCDBFF" FontFamily="Century Gothic" FontSize="16" Margin="0,0,10,0">
                     <Button Content="Speech"
                         Click="SpeechButton_Click"/>
                     <ToggleButton 
@@ -224,13 +217,13 @@
                     </ToggleButton>
                     <ComboBox x:Name="fontFamilyComboBox"
                           Width="100"
-                          SelectionChanged="fontFamilyComboBox_SelectionChanged"/>
+                          SelectionChanged="fontFamilyComboBox_SelectionChanged" Margin="10,0,1,0"/>
                     <ComboBox x:Name="fontSizeComboBox"
                           Width="50"
                           IsEditable="True"
                           TextBoxBase.TextChanged="fontSizeComboBox_TextChanged"/>
                     <Button Content="Save"
-                        Click="SaveButton_Click"/>
+                        Click="SaveButton_Click" Margin="10,0,0,0"/>
                 </ToolBar>
             </ToolBarTray>
             <Grid>
