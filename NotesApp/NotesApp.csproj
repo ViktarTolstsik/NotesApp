@@ -11,6 +11,7 @@
     <None Remove="Images\517256.jpg" />
     <None Remove="Images\compress-alt.png" />
     <None Remove="Images\cross.png" />
+    <None Remove="Images\cross_alt.png" />
     <None Remove="Images\delete-document.png" />
     <None Remove="Images\edit-alt.png" />
     <None Remove="Images\expand.png" />
@@ -18,7 +19,9 @@
     <None Remove="Images\minimize.png" />
     <None Remove="Images\minimize_alt.png" />
     <None Remove="Images\plus.png" />
+    <None Remove="Images\plus_alt.png" />
     <None Remove="Images\power.png" />
+    <None Remove="Images\power_alt.png" />
     <None Remove="Images\trash.png" />
   </ItemGroup>
 
@@ -39,6 +42,7 @@
     <Resource Include="Images\cross.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\cross_alt.png" />
     <Resource Include="Images\delete-document.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -58,7 +62,9 @@
     <Resource Include="Images\plus.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\plus_alt.png" />
     <Resource Include="Images\power.png" />
+    <Resource Include="Images\power_alt.png" />
     <Resource Include="Images\trash.png" />
   </ItemGroup>
 
