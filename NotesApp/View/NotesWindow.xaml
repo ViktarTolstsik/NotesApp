@@ -41,12 +41,12 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
-                <Grid>
+                <Grid Margin="0,0,5,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="NOTEIFY"
                            Foreground="DarkGray"
@@ -76,7 +76,7 @@
                         </Button.Background>
                     </Button>
                     <Button Style="{DynamicResource CloseButtonStyle}" x:Name="btnClose"
-                        Grid.Column="2"
+                        Grid.Column="3"
                         BorderThickness="0"
                         Cursor="Hand"
                         Click="btnClose_Click">
@@ -164,7 +164,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
-                    <RowDefinition MinHeight="500"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Button Style="{DynamicResource NewNoteButtonStyle}" x:Name="btnNewNote"
                         Grid.Row="0"
@@ -190,7 +190,7 @@
                   Width="180"
                   Grid.Row="1"
                   SelectedValue="{Binding SelectedNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                  ItemsSource="{Binding Notes}">
+                  ItemsSource="{Binding Notes}" Background="#FFD1E7FF">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <uc:NoteControl Note="{Binding}"/>
