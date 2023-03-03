@@ -105,7 +105,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
-                    <RowDefinition Height="Auto" MinHeight="500"/>
+                    <RowDefinition MinHeight="500"/>
                 </Grid.RowDefinitions>
                 <Button Style="{DynamicResource NewNotebookButtonStyle}" x:Name="btnNewNotebook"
                         BorderThickness="0"
@@ -130,7 +130,7 @@
                       Background="Transparent"
                       Grid.Row="1"
                       SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      ItemsSource="{Binding Notebooks}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MaxHeight="500">
+                      ItemsSource="{Binding Notebooks}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -160,11 +160,10 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
-                    <RowDefinition Height="Auto" MinHeight="498"/>
+                    <RowDefinition MinHeight="500"/>
                 </Grid.RowDefinitions>
                 <Button Style="{DynamicResource NewNoteButtonStyle}" x:Name="btnNewNote"
                         Grid.Row="0"
-                        Content="+"
                         BorderThickness="0"
                         FontFamily="Montserrat"
                         Cursor="Hand"
@@ -197,10 +196,11 @@
             </Grid>
             <ToolBarTray DockPanel.Dock="Top"
                          x:Name="NoteToolBar"
-                         Height="40" Background="White">
-                <ToolBar Padding="0,5,10,5" Foreground="Black" Background="#FFBCDBFF" FontFamily="Century Gothic" FontSize="16" Margin="0,0,10,0">
+                         Height="40" Background="{x:Null}"
+                         IsLocked="True">
+                <ToolBar Padding="0,5,10,5" Foreground="Black" Background="#FFD1E6FF" FontFamily="Century Gothic" FontSize="16" HorizontalAlignment="Left" Width="Auto" MinWidth="640">
                     <Button Content="Speech"
-                        Click="SpeechButton_Click"/>
+                        Click="SpeechButton_Click" Margin="5,0,5,0"/>
                     <ToggleButton 
                     Content="B"
                     x:Name="boldButton"
@@ -217,11 +217,11 @@
                     </ToggleButton>
                     <ComboBox x:Name="fontFamilyComboBox"
                           Width="100"
-                          SelectionChanged="fontFamilyComboBox_SelectionChanged" Margin="10,0,1,0"/>
+                          SelectionChanged="fontFamilyComboBox_SelectionChanged" Margin="10,0,1,0" Height="25"/>
                     <ComboBox x:Name="fontSizeComboBox"
-                          Width="50"
+                          Width="37"
                           IsEditable="True"
-                          TextBoxBase.TextChanged="fontSizeComboBox_TextChanged"/>
+                          TextBoxBase.TextChanged="fontSizeComboBox_TextChanged" Height="25"/>
                     <Button Content="Save"
                         Click="SaveButton_Click" Margin="10,0,0,0"/>
                 </ToolBar>

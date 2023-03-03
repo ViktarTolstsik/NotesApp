@@ -22,6 +22,7 @@
     <None Remove="Images\minimize_alt.png" />
     <None Remove="Images\plus.png" />
     <None Remove="Images\plus_alt.png" />
+    <None Remove="Images\plus_disabled.png" />
     <None Remove="Images\power.png" />
     <None Remove="Images\power_alt.png" />
     <None Remove="Images\trash.png" />
@@ -67,6 +68,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\plus_alt.png" />
+    <Resource Include="Images\plus_disabled.png" />
     <Resource Include="Images\power.png" />
     <Resource Include="Images\power_alt.png" />
     <Resource Include="Images\trash.png" />
