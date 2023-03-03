@@ -188,9 +188,10 @@
                 </Button>
                 <ListView DockPanel.Dock="Left"
                   Width="180"
+                  BorderThickness="0"
                   Grid.Row="1"
                   SelectedValue="{Binding SelectedNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                  ItemsSource="{Binding Notes}" Background="#FFD1E6FF">
+                  ItemsSource="{Binding Notes}" Background="#FFD1E6FF" BorderBrush="#FFABADB3">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <uc:NoteControl Note="{Binding}"/>
@@ -242,7 +243,8 @@
                 <RichTextBox x:Name="richTextBoxContent"
                          TextChanged="richTextBoxContent_TextChanged"
                          SelectionChanged="richTextBoxContent_SelectionChanged"
-                         Grid.Row="1"/>
+                         Grid.Row="1"
+                         BorderThickness="0"/>
             </Grid>
         </DockPanel>
     </Grid>
