@@ -211,7 +211,8 @@
                          FontSize="16" 
                          Margin="0,0,0,0" 
                          Grid.Row="0" 
-                         Height="40">
+                         Height="40"
+                         ToolBarTray.IsLocked="True">
                     <Button Content="Speech"
                         Click="SpeechButton_Click" Margin="5,0,5,0"/>
                     <ToggleButton 
