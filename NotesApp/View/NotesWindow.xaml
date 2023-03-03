@@ -130,7 +130,11 @@
                       Background="Transparent"
                       Grid.Row="1"
                       SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      ItemsSource="{Binding Notebooks}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
+                      ItemsSource="{Binding Notebooks}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                      BorderBrush="{x:Null}" 
+                      ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                      ScrollViewer.CanContentScroll="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -194,11 +198,20 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
-            <ToolBarTray DockPanel.Dock="Top"
-                         x:Name="NoteToolBar"
-                         Height="40" Background="{x:Null}"
-                         IsLocked="True">
-                <ToolBar Padding="0,5,10,5" Foreground="Black" Background="#FFD1E6FF" FontFamily="Century Gothic" FontSize="16" HorizontalAlignment="Left" Width="Auto" MinWidth="640">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <ToolBar x:Name="NoteToolBar"
+                         Padding="0,5,10,5"
+                         Foreground="Black" 
+                         Background="#FFD1E6FF" 
+                         FontFamily="Century Gothic" 
+                         FontSize="16" 
+                         Margin="0,0,0,0" 
+                         Grid.Row="0" 
+                         Height="40">
                     <Button Content="Speech"
                         Click="SpeechButton_Click" Margin="5,0,5,0"/>
                     <ToggleButton 
@@ -225,11 +238,10 @@
                     <Button Content="Save"
                         Click="SaveButton_Click" Margin="10,0,0,0"/>
                 </ToolBar>
-            </ToolBarTray>
-            <Grid>
                 <RichTextBox x:Name="richTextBoxContent"
                          TextChanged="richTextBoxContent_TextChanged"
-                         SelectionChanged="richTextBoxContent_SelectionChanged"/>
+                         SelectionChanged="richTextBoxContent_SelectionChanged"
+                         Grid.Row="1"/>
             </Grid>
         </DockPanel>
     </Grid>
