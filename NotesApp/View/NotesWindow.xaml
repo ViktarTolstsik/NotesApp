@@ -22,16 +22,10 @@
             <Border CornerRadius="5"
                 BorderThickness="1"
                 Opacity="0.95">
-                <Border.BorderBrush>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#462AD8" Offset="0"/>
-                        <GradientStop Color="#8A16c1" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.BorderBrush>
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                        <GradientStop Color="#060531" Offset="0"/>
-                        <GradientStop Color="#1B1448" Offset="1"/>
+                        <GradientStop Color="#FF6ACCFF" Offset="0"/>
+                        <GradientStop Color="#FF4267FF" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
@@ -103,7 +97,14 @@
                 </StatusBarItem>
             </StatusBar>
             <Grid>
-                <Border CornerRadius="25" Width="Auto">
+                <Border CornerRadius="0,40,0,0"
+                        BorderThickness="1">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                            <GradientStop Color="#060531" Offset="0"/>
+                            <GradientStop Color="#1B1448" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
                 </Border>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -135,7 +136,8 @@
                       SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       ItemsSource="{Binding Notebooks}" 
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                      BorderBrush="{x:Null}" 
+                      BorderBrush="{x:Null}"
+                      BorderThickness="0"
                       ScrollViewer.VerticalScrollBarVisibility="Auto" 
                       ScrollViewer.CanContentScroll="True">
                         <ListView.ItemTemplate>
@@ -177,7 +179,7 @@
                         Cursor="Hand"
                         Command="{Binding NewNoteCommand}"
                         CommandParameter="{Binding SelectedNotebook}">
-                        <Button.Background>
+                    <Button.Background>
                         <ImageBrush ImageSource="/Images/plus.png" 
                                             Stretch="Uniform" 
                                             AlignmentX="Center" TileMode="None">
@@ -195,7 +197,7 @@
                   BorderThickness="0"
                   Grid.Row="1"
                   SelectedValue="{Binding SelectedNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                  ItemsSource="{Binding Notes}" Background="#FFD1E6FF" BorderBrush="#FFABADB3">
+                  ItemsSource="{Binding Notes}" Background="{x:Null}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <uc:NoteControl Note="{Binding}"/>
@@ -209,15 +211,14 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <ToolBar x:Name="NoteToolBar"
-                         Padding="0,5,10,5"
+                         Padding="0,0,0,0"
                          Foreground="Black" 
                          Background="#FFD1E6FF" 
                          FontFamily="Century Gothic" 
                          FontSize="16" 
-                         Margin="0,0,0,0" 
                          Grid.Row="0" 
                          Height="40"
-                         ToolBarTray.IsLocked="True">
+                         ToolBarTray.IsLocked="True" Margin="-3,0,0,0">
                     <Button Content="Speech"
                         Click="SpeechButton_Click" Margin="5,0,5,0"/>
                     <ToggleButton 
@@ -244,7 +245,7 @@
                     <Button Content="Save"
                         Click="SaveButton_Click" Margin="10,0,0,0"/>
                 </ToolBar>
-                <RichTextBox x:Name="richTextBoxContent"
+                <RichTextBox Style="{DynamicResource NoteRichTextBoxStyle}" x:Name="richTextBoxContent"
                          TextChanged="richTextBoxContent_TextChanged"
                          SelectionChanged="richTextBoxContent_SelectionChanged"
                          Grid.Row="1"
