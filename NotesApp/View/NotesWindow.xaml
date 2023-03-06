@@ -103,31 +103,34 @@
                 </StatusBarItem>
             </StatusBar>
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition MinHeight="500"/>
-                </Grid.RowDefinitions>
-                <Button Style="{DynamicResource NewNotebookButtonStyle}" x:Name="btnNewNotebook"
+                <Border CornerRadius="25" Width="Auto">
+                </Border>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition MinHeight="500"/>
+                    </Grid.RowDefinitions>
+                    <Button Style="{DynamicResource NewNotebookButtonStyle}" x:Name="btnNewNotebook"
                         BorderThickness="0"
                         FontFamily="Montserrat"
                         Cursor="Hand"
                         Command="{Binding NewNotebookCommand}">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/Images/plus.png" 
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Images/plus.png" 
                                             Stretch="Uniform" 
                                             AlignmentX="Center">
-                            <ImageBrush.RelativeTransform>
-                                <TransformGroup>
-                                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.65" ScaleY="0.65"/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </ImageBrush.RelativeTransform>
-                        </ImageBrush>
-                    </Button.Background>
-                </Button>
-                <ListView DockPanel.Dock="Left"
+                                <ImageBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.65" ScaleY="0.65"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ImageBrush.RelativeTransform>
+                            </ImageBrush>
+                        </Button.Background>
+                    </Button>
+                    <ListView DockPanel.Dock="Left"
                       Width="180"
-                      Background="Transparent"
+                      Background="{x:Null}"
                       Grid.Row="1"
                       SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       ItemsSource="{Binding Notebooks}" 
@@ -135,31 +138,32 @@
                       BorderBrush="{x:Null}" 
                       ScrollViewer.VerticalScrollBarVisibility="Auto" 
                       ScrollViewer.CanContentScroll="True">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <uc:NotebookControl Notebook="{Binding}">
-                                    <uc:NotebookControl.ContextMenu>
-                                        <ContextMenu>
-                                            <MenuItem Header="Rename"
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <uc:NotebookControl Notebook="{Binding}">
+                                        <uc:NotebookControl.ContextMenu>
+                                            <ContextMenu>
+                                                <MenuItem Header="Rename"
                                           Command="{Binding Source={StaticResource vm}, Path=EditCommand}"/>
-                                        </ContextMenu>
-                                    </uc:NotebookControl.ContextMenu>
-                                </uc:NotebookControl>
-                                <TextBox Text="{Binding Name, Mode=TwoWay}" 
+                                            </ContextMenu>
+                                        </uc:NotebookControl.ContextMenu>
+                                    </uc:NotebookControl>
+                                    <TextBox Text="{Binding Name, Mode=TwoWay}" 
                                  Visibility="{Binding Source={StaticResource vm},Path=IsVisible}"
                                  Height="20">
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="LostFocus">
-                                            <i:InvokeCommandAction Command="{Binding Source={StaticResource vm}, Path=EndEditingCommand}"
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="LostFocus">
+                                                <i:InvokeCommandAction Command="{Binding Source={StaticResource vm}, Path=EndEditingCommand}"
                                                            CommandParameter="{Binding}"/>
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                </TextBox>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TextBox>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
             </Grid>
             <Grid>
                 <Grid.RowDefinitions>
