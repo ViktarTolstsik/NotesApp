@@ -19,11 +19,10 @@
     </Window.Resources>
     <Grid>
         <Border CornerRadius="25" Width="Auto">
-            <Border CornerRadius="5"
-                BorderThickness="0"
-                Opacity="0.95">
+            <Border CornerRadius="15"
+                BorderThickness="0">
                 <Border.Background>
-                    <SolidColorBrush Color="#FF3C4043"/>
+                    <SolidColorBrush Color="#272537"/>
                 </Border.Background>
             </Border>
         </Border>
@@ -40,7 +39,7 @@
                         <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
-                    <Border Grid.Column="0" Background="Black" CornerRadius="5,0,0,0"/>
+                    <Border Grid.Column="0" Background="#FF272537" CornerRadius="15,0,0,0"/>
                     <TextBlock Text="NOTEIFY"
                            Foreground="#FFD1E6FF"
                            FontSize="24"
@@ -98,7 +97,7 @@
             <Grid>
                 <Border>
                     <Border.Background>
-                        <SolidColorBrush Color="#FF3484F0"/>
+                        <SolidColorBrush Color="#272537"/>
                     </Border.Background>
                 </Border>
                 <Grid>

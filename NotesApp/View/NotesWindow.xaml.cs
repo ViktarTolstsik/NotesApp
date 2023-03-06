@@ -55,6 +55,7 @@ namespace NotesApp.View
             List<double> fontSizes = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 24, 28, 32 };
             fontSizeComboBox.ItemsSource = fontSizes;
             NoteToolBar.IsEnabled = false;
+            richTextBoxContent.IsEnabled = false;
         }
 
         protected override void OnActivated(EventArgs e)
@@ -82,6 +83,7 @@ namespace NotesApp.View
 
                 }
                 NoteToolBar.IsEnabled = true;
+                richTextBoxContent.IsEnabled = true;
             }
             
         }
