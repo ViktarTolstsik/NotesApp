@@ -20,37 +20,36 @@
     <Grid>
         <Border CornerRadius="25" Width="Auto">
             <Border CornerRadius="5"
-                BorderThickness="1"
+                BorderThickness="0"
                 Opacity="0.95">
                 <Border.Background>
-                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                        <GradientStop Color="#FF6ACCFF" Offset="0"/>
-                        <GradientStop Color="#FF4267FF" Offset="1"/>
-                    </LinearGradientBrush>
+                    <SolidColorBrush Color="#FF3C4043"/>
                 </Border.Background>
             </Border>
         </Border>
         <DockPanel DataContext="{StaticResource vm}">
             <Grid Height="50" Width="Auto"  DockPanel.Dock="Top">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
                 <Grid Margin="0,0,5,0">
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Background="Black" CornerRadius="5,0,0,0"/>
                     <TextBlock Text="NOTEIFY"
                            Foreground="#FFD1E6FF"
                            FontSize="24"
                            FontFamily="Century Gothic"
                            Grid.Column="0"
                            VerticalAlignment="Center"
-                           Margin="10,0,0,0"/>
+                           HorizontalAlignment="Center"/>
                     <Button Style="{DynamicResource MinimizeButtonStyle}" x:Name="btnMinimize"
-                        Grid.Column="1"
+                        Grid.Column="2"
                         BorderThickness="0"
                         Cursor="Hand"
                         Click="btnMinimize_Click" Margin="-10,0,10,0">
@@ -70,7 +69,7 @@
                         </Button.Background>
                     </Button>
                     <Button Style="{DynamicResource CloseButtonStyle}" x:Name="btnClose"
-                        Grid.Column="3"
+                        Grid.Column="4"
                         BorderThickness="0"
                         Cursor="Hand"
                         Click="btnClose_Click">
@@ -91,19 +90,15 @@
                     </Button>
                 </Grid>
             </Grid>
-            <StatusBar DockPanel.Dock="Bottom">
+            <StatusBar DockPanel.Dock="Bottom" Width="Auto">
                 <StatusBarItem>
                     <TextBlock x:Name="statusTextBlock"/>
                 </StatusBarItem>
             </StatusBar>
             <Grid>
-                <Border CornerRadius="0,40,0,0"
-                        BorderThickness="1">
+                <Border>
                     <Border.Background>
-                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                            <GradientStop Color="#060531" Offset="0"/>
-                            <GradientStop Color="#1B1448" Offset="1"/>
-                        </LinearGradientBrush>
+                        <SolidColorBrush Color="#FF3484F0"/>
                     </Border.Background>
                 </Border>
                 <Grid>
@@ -213,7 +208,7 @@
                 <ToolBar x:Name="NoteToolBar"
                          Padding="0,0,0,0"
                          Foreground="Black" 
-                         Background="#FFD1E6FF" 
+                         Background="#FFF5FAFA" 
                          FontFamily="Century Gothic" 
                          FontSize="16" 
                          Grid.Row="0" 
@@ -249,7 +244,7 @@
                          TextChanged="richTextBoxContent_TextChanged"
                          SelectionChanged="richTextBoxContent_SelectionChanged"
                          Grid.Row="1"
-                         BorderThickness="0"/>
+                         BorderThickness="0" Background="#FFF5FAFA"/>
             </Grid>
         </DockPanel>
     </Grid>
