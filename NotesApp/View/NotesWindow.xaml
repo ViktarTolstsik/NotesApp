@@ -157,10 +157,11 @@
                         <ListView.ItemContainerStyle>
                             <Style TargetType="{x:Type ListViewItem}">
                                 <Setter Property="Background" Value="#272537"/>
+                                <Setter Property="BorderBrush" Value="#272537"/>
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="{x:Type ListViewItem}">
-                                            <Border Background="{TemplateBinding Background}">
+                                            <Border Background="{TemplateBinding Background}" BorderThickness="5,0,0,0" BorderBrush="{TemplateBinding BorderBrush}">
                                                 <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                             </Border>
                                         </ControlTemplate>
@@ -169,7 +170,7 @@
                                 <Style.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
                                         <Setter Property="Background" Value="#FF1A1925"/>
-                                        <Setter Property="TextBlock.Foreground" Value="Red"/>
+                                        <Setter Property="BorderBrush" Value="#FF716E94"/>
                                     </Trigger>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="#FF1A1925"/>
