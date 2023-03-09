@@ -12,9 +12,10 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
-
         <TextBlock Text="•"
                    Foreground="AliceBlue"
                    Grid.Column="0"
@@ -28,5 +29,7 @@
                    FontWeight="Bold"
                    VerticalAlignment="Center"
                    Grid.Column="1"/>
+        <Button Grid.Column="2"/>
+        <Button Grid.Column="3"/>
     </Grid>
 </UserControl>

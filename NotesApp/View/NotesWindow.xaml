@@ -144,7 +144,7 @@
                         </Button.Background>
                     </Button>
                     <ListView DockPanel.Dock="Left"
-                      Width="180"
+                      Width="220"
                       Background="{x:Null}"
                       Grid.Row="1"
                       SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
