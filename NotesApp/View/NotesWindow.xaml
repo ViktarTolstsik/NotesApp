@@ -168,7 +168,8 @@
                                 </Setter>
                                 <Style.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="Background" Value="#FF121119"/>
+                                        <Setter Property="Background" Value="#FF1A1925"/>
+                                        <Setter Property="TextBlock.Foreground" Value="Red"/>
                                     </Trigger>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="#FF1A1925"/>
