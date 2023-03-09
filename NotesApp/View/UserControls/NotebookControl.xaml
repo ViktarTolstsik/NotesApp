@@ -6,8 +6,6 @@
              xmlns:local="clr-namespace:NotesApp.View.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="300">
-    <UserControl.Resources>
-    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,6 +14,7 @@
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
+
         <TextBlock Text="•"
                    Foreground="AliceBlue"
                    Grid.Column="0"
