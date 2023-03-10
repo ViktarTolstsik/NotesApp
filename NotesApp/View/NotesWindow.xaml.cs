@@ -174,6 +174,7 @@ namespace NotesApp.View
             if (isButtonChecked)
             {
                 richTextBoxContent.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, TextDecorations.Underline);
+                EditingCommands.ToggleBullets.Execute(null, richTextBoxContent);
             }
             else
             {
