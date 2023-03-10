@@ -22,7 +22,11 @@
             <Border CornerRadius="15"
                 BorderThickness="0">
                 <Border.Background>
-                    <SolidColorBrush Color="#22272c"/>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#22272c" Offset="0.37"/>
+                        <GradientStop Color="#2a4158" Offset="1"/>
+                    </LinearGradientBrush>
+                    <!--<SolidColorBrush Color="#22272c"/>-->
                 </Border.Background>
             </Border>
         </Border>

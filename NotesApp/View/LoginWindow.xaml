@@ -33,25 +33,25 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid DataContext="{StaticResource vm}">
-        <Border CornerRadius="125,0,125,0">
+        <Border CornerRadius="20">
             <Border.Background>
                 <ImageBrush ImageSource="/Images/517256.jpg"
                             Stretch="UniformToFill"/>
             </Border.Background>
-            <Border CornerRadius="125,0,125,0"
-                BorderThickness="1"
+            <Border CornerRadius="15"
+                BorderThickness="3"
                 Opacity="0.95">
                 <Border.BorderBrush>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#462AD8" Offset="0"/>
-                        <GradientStop Color="#DA34AE" Offset="0.5"/>
-                        <GradientStop Color="#8A16c1" Offset="1"/>
+                        <GradientStop Color="#22272c" Offset="0"/>
+                        <GradientStop Color="#2a4158" Offset="0.5"/>
+                        <GradientStop Color="#597387" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.BorderBrush>
                 <Border.Background>
-                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                        <GradientStop Color="#060531" Offset="0"/>
-                        <GradientStop Color="#1B1448" Offset="1"/>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#22272c" Offset="0"/>
+                        <GradientStop Color="#2a4158" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
