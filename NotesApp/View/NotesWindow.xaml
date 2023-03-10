@@ -8,7 +8,7 @@
         xmlns:uc="clr-namespace:NotesApp.View.UserControls"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
-        Title="NotesWindow" Height="600" Width="1000"
+        Title="NotesWindow" Height="800" Width="1400"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
@@ -18,23 +18,28 @@
         <vm:NotesVM x:Key="vm"/>
     </Window.Resources>
     <Grid>
-        <Border CornerRadius="25" Width="Auto">
-            <Border CornerRadius="15"
+        <Border CornerRadius="30"
                 BorderThickness="0">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="#22272c" Offset="0.37"/>
-                        <GradientStop Color="#2a4158" Offset="1"/>
-                    </LinearGradientBrush>
-                    <!--<SolidColorBrush Color="#22272c"/>-->
-                </Border.Background>
-            </Border>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#eef5f8" Offset="0.3"/>
+                    <GradientStop Color="#eef5f8" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
         </Border>
         <DockPanel DataContext="{StaticResource vm}">
             <Grid Height="50" Width="Auto"  DockPanel.Dock="Top">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
+                <Border CornerRadius="15,15,0,0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#0b2035" Offset="0.3"/>
+                            <GradientStop Color="#1c629e" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
                 <Grid Margin="0,0,5,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="180"/>
@@ -43,7 +48,7 @@
                         <ColumnDefinition Width="30"/>
                         <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
-                    <Border Grid.Column="0" Background="#22272c" CornerRadius="15,0,0,0"/>
+                    <Border Grid.Column="0" Background="Transparent"  CornerRadius="15,0,0,0"/>
                     <TextBlock Text="NOTEIFY"
                            Foreground="Azure"
                            FontSize="24"
@@ -121,7 +126,7 @@
             <Grid>
                 <Border>
                     <Border.Background>
-                        <SolidColorBrush Color="#22272c"/>
+                        <SolidColorBrush Color="#0b2035"/>
                     </Border.Background>
                 </Border>
                 <Grid>
@@ -161,8 +166,8 @@
                       HorizontalContentAlignment="Stretch">
                        <ListView.ItemContainerStyle>
                             <Style TargetType="{x:Type ListViewItem}">
-                                <Setter Property="Background" Value="#22272c"/>
-                                <Setter Property="BorderBrush" Value="#22272c"/>
+                                <Setter Property="Background" Value="#0b2035"/>
+                                <Setter Property="BorderBrush" Value="#0b2035"/>
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="{x:Type ListViewItem}">
@@ -174,11 +179,11 @@
                                 </Setter>
                                 <Style.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="Background" Value="#FF111417"/>
-                                        <Setter Property="BorderBrush" Value="#597387"/>
+                                        <Setter Property="Background" Value="#FF06131F"/>
+                                        <Setter Property="BorderBrush" Value="#1c629e"/>
                                     </Trigger>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#FF111417"/>
+                                        <Setter Property="Background" Value="#FF06131F"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -255,25 +260,27 @@
                 </Grid.RowDefinitions>
                 <ToolBar x:Name="NoteToolBar"
                          Padding="0,0,0,0"
-                         Foreground="Black" 
-                         Background="AliceBlue" 
+                         Background="#b5e1f7" 
                          FontFamily="Century Gothic" 
                          FontSize="16" 
                          Grid.Row="0" 
                          Height="40"
                          ToolBarTray.IsLocked="True" Margin="-3,0,0,0">
-                    <Button Content="Speech"
+                    <Button Content="Speech" Foreground="#0b2035" 
                         Click="SpeechButton_Click" Margin="5,0,5,0"/>
                     <ToggleButton 
                     Content="B"
+                    Foreground="#0b2035" 
                     x:Name="boldButton"
                     FontWeight="Bold"
                     Click="BoldButton_Click"/>
                     <ToggleButton Content="I"
+                                  Foreground="#0b2035" 
                               x:Name="italicButton"
                               FontStyle="Italic"
                               Click="italicButton_Click"/>
                     <ToggleButton x:Name="underlineButton"
+                                  Foreground="#0b2035" 
                               Click="underlineButton_Click">
                         <TextBlock Text="U"
                                TextDecorations="Underline"/>
@@ -286,6 +293,7 @@
                           IsEditable="True"
                           TextBoxBase.TextChanged="fontSizeComboBox_TextChanged" Height="25"/>
                     <Button Content="Save"
+                            Foreground="#0b2035" 
                         Click="SaveButton_Click" Margin="10,0,0,0"/>
                 </ToolBar>
                 <RichTextBox Style="{DynamicResource NoteRichTextBoxStyle}" x:Name="richTextBoxContent"
