@@ -22,7 +22,7 @@
             <Border CornerRadius="15"
                 BorderThickness="0">
                 <Border.Background>
-                    <SolidColorBrush Color="#272537"/>
+                    <SolidColorBrush Color="#22272c"/>
                 </Border.Background>
             </Border>
         </Border>
@@ -39,9 +39,9 @@
                         <ColumnDefinition Width="30"/>
                         <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
-                    <Border Grid.Column="0" Background="#FF272537" CornerRadius="15,0,0,0"/>
+                    <Border Grid.Column="0" Background="#22272c" CornerRadius="15,0,0,0"/>
                     <TextBlock Text="NOTEIFY"
-                           Foreground="#FFD1E6FF"
+                           Foreground="Azure"
                            FontSize="24"
                            FontFamily="Century Gothic"
                            Grid.Column="0"
@@ -117,7 +117,7 @@
             <Grid>
                 <Border>
                     <Border.Background>
-                        <SolidColorBrush Color="#272537"/>
+                        <SolidColorBrush Color="#22272c"/>
                     </Border.Background>
                 </Border>
                 <Grid>
@@ -157,8 +157,8 @@
                       HorizontalContentAlignment="Stretch">
                        <ListView.ItemContainerStyle>
                             <Style TargetType="{x:Type ListViewItem}">
-                                <Setter Property="Background" Value="#272537"/>
-                                <Setter Property="BorderBrush" Value="#272537"/>
+                                <Setter Property="Background" Value="#22272c"/>
+                                <Setter Property="BorderBrush" Value="#22272c"/>
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="{x:Type ListViewItem}">
@@ -170,11 +170,11 @@
                                 </Setter>
                                 <Style.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="Background" Value="#FF1A1925"/>
-                                        <Setter Property="BorderBrush" Value="#FF716E94"/>
+                                        <Setter Property="Background" Value="#FF111417"/>
+                                        <Setter Property="BorderBrush" Value="#597387"/>
                                     </Trigger>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#FF1A1925"/>
+                                        <Setter Property="Background" Value="#FF111417"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -252,7 +252,7 @@
                 <ToolBar x:Name="NoteToolBar"
                          Padding="0,0,0,0"
                          Foreground="Black" 
-                         Background="#FFF5FAFA" 
+                         Background="AliceBlue" 
                          FontFamily="Century Gothic" 
                          FontSize="16" 
                          Grid.Row="0" 
@@ -288,7 +288,7 @@
                          TextChanged="richTextBoxContent_TextChanged"
                          SelectionChanged="richTextBoxContent_SelectionChanged"
                          Grid.Row="1"
-                         BorderThickness="0" Background="#FFF5FAFA"/>
+                         BorderThickness="0" Background="Snow"/>
             </Grid>
         </DockPanel>
     </Grid>
