@@ -18,7 +18,7 @@
         <vm:NotesVM x:Key="vm"/>
     </Window.Resources>
     <Grid>
-        <Border CornerRadius="30"
+        <Border CornerRadius="30,30,20,20"
                 BorderThickness="0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
@@ -51,11 +51,11 @@
                     <Border Grid.Column="0" Background="Transparent"  CornerRadius="15,0,0,0"/>
                     <TextBlock Text="NOTEIFY"
                            Foreground="Azure"
-                           FontSize="24"
+                           FontSize="34"
                            FontFamily="Century Gothic"
                            Grid.Column="0"
                            VerticalAlignment="Center"
-                           HorizontalAlignment="Center"/>
+                           Margin="10"/>
                     <Button Style="{DynamicResource MinimizeButtonStyle}" x:Name="btnMinimize"
                         Grid.Column="2"
                         BorderThickness="0"
@@ -161,7 +161,7 @@
                         </Button.Background>
                     </Button>
                     <ListView DockPanel.Dock="Left"
-                      Width="220"
+                      Width="250"
                       Background="{x:Null}"
                       Grid.Row="1"
                       SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -313,6 +313,7 @@
                          TextChanged="richTextBoxContent_TextChanged"
                          SelectionChanged="richTextBoxContent_SelectionChanged"
                          Grid.Row="1"
+                         Margin="0,5,0,5"
                          BorderThickness="0" Background="Snow"/>
             </Grid>
         </DockPanel>

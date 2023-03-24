@@ -19,16 +19,18 @@
         <TextBlock Text="•"
                    Foreground="AliceBlue"
                    Grid.Column="0"
-                   FontSize="18"
+                   FontSize="20"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
         <TextBlock Text="{Binding Name}"
                    Foreground="AliceBlue"
                    Margin="10"
-                   FontSize="15"
+                   FontSize="20"
                    FontWeight="Bold"
                    VerticalAlignment="Center"
-                   Grid.Column="1"/>
+                   Grid.Column="1"
+                   MaxWidth="240"
+                   TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
         <Button Grid.Column="2" Height="20" VerticalAlignment="Stretch"/>
         <Button Grid.Column="3" Height="20" VerticalAlignment="Stretch"/>
     </Grid>
