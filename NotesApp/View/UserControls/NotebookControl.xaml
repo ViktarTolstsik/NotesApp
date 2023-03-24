@@ -19,7 +19,7 @@
         <TextBlock Text="•"
                    Foreground="AliceBlue"
                    Grid.Column="0"
-                   FontSize="20"
+                   FontSize="40"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
         <TextBlock Text="{Binding Name}"
