@@ -22,8 +22,8 @@
                 BorderThickness="0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                    <GradientStop Color="#eef5f8" Offset="0.3"/>
-                    <GradientStop Color="#eef5f8" Offset="1"/>
+                    <GradientStop Color="#0b2e62" Offset="0.3"/>
+                    <GradientStop Color="#0e71cd" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
@@ -51,7 +51,7 @@
                     <Border Grid.Column="0" Background="Transparent"  CornerRadius="15,0,0,0"/>
                     <TextBlock Text="NOTEIFY"
                            Foreground="Azure"
-                           FontSize="34"
+                           FontSize="30"
                            FontFamily="Century Gothic"
                            Grid.Column="0"
                            VerticalAlignment="Center"
@@ -268,29 +268,29 @@
                 </Grid.RowDefinitions>
                 <ToolBar x:Name="NoteToolBar"
                          Padding="0,0,0,0"
-                         Background="#4C0E71CD" 
+                         Background="#FF0E71CD" 
                          FontSize="16" 
                          Grid.Row="0" 
                          Height="40"
                          ToolBarTray.IsLocked="True" Margin="-3,0,0,0">
-                    <Button Content="Speech" Foreground="#0b2035" 
+                    <Button Content="Speech" Foreground="#FFE4E4E4" 
                         Click="SpeechButton_Click" Margin="5,0,5,0"
                         FontFamily="Century Gothic" />
                     <ToggleButton 
                     Content="B"
-                    Foreground="#0b2035" 
+                    Foreground="AliceBlue" 
                     x:Name="boldButton"
                     FontWeight="Bold"
                     Click="BoldButton_Click"
                     FontFamily="Century Gothic"/>
                     <ToggleButton Content="I"
-                                  Foreground="#0b2035" 
+                                  Foreground="AliceBlue" 
                               x:Name="italicButton"
                               FontStyle="Italic"
                               Click="italicButton_Click"
                                   FontFamily="Century Gothic"/>
                     <ToggleButton x:Name="underlineButton"
-                                  Foreground="#0b2035" 
+                                  Foreground="AliceBlue" 
                               Click="underlineButton_Click">
                         <TextBlock Text="U"
                                TextDecorations="Underline"
@@ -305,7 +305,7 @@
                           IsEditable="True"
                           TextBoxBase.TextChanged="fontSizeComboBox_TextChanged" Height="25"/>
                     <Button Content="Save"
-                            Foreground="#0b2035" 
+                            Foreground="AliceBlue" 
                             Click="SaveButton_Click" Margin="10,0,0,0"
                             FontFamily="Century Gothic"/>
                 </ToolBar>
@@ -313,7 +313,7 @@
                          TextChanged="richTextBoxContent_TextChanged"
                          SelectionChanged="richTextBoxContent_SelectionChanged"
                          Grid.Row="1"
-                         Margin="0,5,0,5"
+                         Margin="0,5,5,5"
                          BorderThickness="0" Background="Snow"/>
             </Grid>
         </DockPanel>
