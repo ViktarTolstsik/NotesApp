@@ -34,9 +34,9 @@
                 </Grid.RowDefinitions>
                 <Border CornerRadius="15,15,0,0">
                     <Border.Background>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop Color="#0b2035" Offset="0.3"/>
-                            <GradientStop Color="#1c629e" Offset="1"/>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,15">
+                            <GradientStop Color="#0b2e62" Offset="0.3"/>
+                            <GradientStop Color="#0e71cd" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
                 </Border>
@@ -118,15 +118,23 @@
                     </Button>
                 </Grid>
             </Grid>
-            <StatusBar DockPanel.Dock="Bottom" Width="Auto">
-                <StatusBarItem>
-                    <TextBlock x:Name="statusTextBlock"/>
-                </StatusBarItem>
-            </StatusBar>
+            <Grid Height="20" Width="Auto"  DockPanel.Dock="Bottom">
+                <Border CornerRadius="0,0,15,15">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,15">
+                            <GradientStop Color="#0b2e62" Offset="0.3"/>
+                            <GradientStop Color="#0e71cd" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+                <TextBlock x:Name="statusTextBlock"
+                           Foreground="AliceBlue"
+                           Margin="20,0,0,0"/>
+            </Grid>
             <Grid>
                 <Border>
                     <Border.Background>
-                        <SolidColorBrush Color="#0b2035"/>
+                        <SolidColorBrush Color="#0b2e62"/>
                     </Border.Background>
                 </Border>
                 <Grid>
@@ -166,8 +174,8 @@
                       HorizontalContentAlignment="Stretch">
                        <ListView.ItemContainerStyle>
                             <Style TargetType="{x:Type ListViewItem}">
-                                <Setter Property="Background" Value="#0b2035"/>
-                                <Setter Property="BorderBrush" Value="#0b2035"/>
+                                <Setter Property="Background" Value="#0b2e62"/>
+                                <Setter Property="BorderBrush" Value="#0b2e62"/>
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="{x:Type ListViewItem}">
@@ -179,11 +187,11 @@
                                 </Setter>
                                 <Style.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="Background" Value="#FF06131F"/>
-                                        <Setter Property="BorderBrush" Value="#1c629e"/>
+                                        <Setter Property="Background" Value="#FF031F48"/>
+                                        <Setter Property="BorderBrush" Value="#0e71cd"/>
                                     </Trigger>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#FF06131F"/>
+                                        <Setter Property="Background" Value="#FF031F48"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -260,33 +268,37 @@
                 </Grid.RowDefinitions>
                 <ToolBar x:Name="NoteToolBar"
                          Padding="0,0,0,0"
-                         Background="#b5e1f7" 
-                         FontFamily="Century Gothic" 
+                         Background="#4C0E71CD" 
                          FontSize="16" 
                          Grid.Row="0" 
                          Height="40"
                          ToolBarTray.IsLocked="True" Margin="-3,0,0,0">
                     <Button Content="Speech" Foreground="#0b2035" 
-                        Click="SpeechButton_Click" Margin="5,0,5,0"/>
+                        Click="SpeechButton_Click" Margin="5,0,5,0"
+                        FontFamily="Century Gothic" />
                     <ToggleButton 
                     Content="B"
                     Foreground="#0b2035" 
                     x:Name="boldButton"
                     FontWeight="Bold"
-                    Click="BoldButton_Click"/>
+                    Click="BoldButton_Click"
+                    FontFamily="Century Gothic"/>
                     <ToggleButton Content="I"
                                   Foreground="#0b2035" 
                               x:Name="italicButton"
                               FontStyle="Italic"
-                              Click="italicButton_Click"/>
+                              Click="italicButton_Click"
+                                  FontFamily="Century Gothic"/>
                     <ToggleButton x:Name="underlineButton"
                                   Foreground="#0b2035" 
                               Click="underlineButton_Click">
                         <TextBlock Text="U"
-                               TextDecorations="Underline"/>
+                               TextDecorations="Underline"
+                                   FontFamily="Century Gothic"/>
                     </ToggleButton>
                     <ComboBox x:Name="fontFamilyComboBox"
                           Width="100"
+                          ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}"
                           SelectionChanged="fontFamilyComboBox_SelectionChanged" Margin="10,0,1,0" Height="25"/>
                     <ComboBox x:Name="fontSizeComboBox"
                           Width="37"
@@ -294,7 +306,8 @@
                           TextBoxBase.TextChanged="fontSizeComboBox_TextChanged" Height="25"/>
                     <Button Content="Save"
                             Foreground="#0b2035" 
-                        Click="SaveButton_Click" Margin="10,0,0,0"/>
+                            Click="SaveButton_Click" Margin="10,0,0,0"
+                            FontFamily="Century Gothic"/>
                 </ToolBar>
                 <RichTextBox Style="{DynamicResource NoteRichTextBoxStyle}" x:Name="richTextBoxContent"
                          TextChanged="richTextBoxContent_TextChanged"
