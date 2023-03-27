@@ -7,6 +7,7 @@
         xmlns:vm="clr-namespace:NotesApp.ViewModel"
         xmlns:uc="clr-namespace:NotesApp.View.UserControls"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
         Title="NotesWindow" Height="800" Width="1400"
         WindowStyle="None"
@@ -44,9 +45,9 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="180"/>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="30"/>
-                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
                     </Grid.ColumnDefinitions>
                     <Border Grid.Column="0" Background="Transparent"  CornerRadius="15,0,0,0"/>
                     <TextBlock Text="NOTEIFY"
@@ -60,61 +61,37 @@
                         Grid.Column="2"
                         BorderThickness="0"
                         Cursor="Hand"
-                        Click="btnMinimize_Click" Margin="0,0,0,0">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/Images/minimize.png" 
-                                            Stretch="Uniform" 
-                                            AlignmentX="Center">
-                                <ImageBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.8"/>
-                                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
-                                        <RotateTransform CenterX="0.5" CenterY="0.5"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </ImageBrush.RelativeTransform>
-                            </ImageBrush>
-                        </Button.Background>
+                        Click="btnMinimize_Click" Margin="0,0,0,0"
+                        Background="Transparent" VerticalAlignment="Bottom">
+                        <Button.Content>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Padding="0,0,0,5">
+                                    <Run Text="&#xf2d1;" FontFamily="{StaticResource FontAwesome}" Foreground="AliceBlue" FontSize="30"/>
+                            </TextBlock>
+                        </Button.Content>
                     </Button>
                     <Button Style="{DynamicResource MaximizeButtonStyle}" x:Name="btnMaximize"
                         Grid.Column="3"
                         BorderThickness="0"
                         Cursor="Hand"
-                        Click="btnMinimize_Click" Margin="2,15,2,13">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/Images/expand.png" 
-                                            Stretch="Fill" 
-                                            AlignmentX="Center">
-                                <ImageBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.8"/>
-                                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
-                                        <RotateTransform CenterX="0.5" CenterY="0.5"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </ImageBrush.RelativeTransform>
-                            </ImageBrush>
-                        </Button.Background>
+                        Click="btnMinimize_Click" Margin="0"
+                        Background="Transparent" VerticalAlignment="Bottom" Padding="0,0,0,5">
+                        <Button.Content>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <Run Text="&#xf2d0;" FontFamily="{StaticResource FontAwesome}" Foreground="AliceBlue" FontSize="40"/>
+                            </TextBlock>
+                        </Button.Content>
                     </Button>
                     <Button Style="{DynamicResource CloseButtonStyle}" x:Name="btnClose"
                         Grid.Column="4"
                         BorderThickness="0"
                         Cursor="Hand"
-                        Click="btnClose_Click">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/Images/cross.png" 
-                                    Stretch="Uniform" 
-                                    AlignmentX="Center">
-                                <ImageBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.7" CenterX="0.5" ScaleX="0.8" ScaleY="0.8"/>
-                                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
-                                        <RotateTransform CenterX="0.5" CenterY="0.5"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </ImageBrush.RelativeTransform>
-                            </ImageBrush>
-                        </Button.Background>
+                        Click="btnClose_Click"
+                        Background="Transparent" VerticalAlignment="Bottom" Padding="0,0,0,5">
+                        <Button.Content>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <Run Text="&#xf410;" FontFamily="{StaticResource FontAwesome}" Foreground="AliceBlue" FontSize="40"/>
+                            </TextBlock>
+                        </Button.Content>
                     </Button>
                 </Grid>
             </Grid>
@@ -129,6 +106,7 @@
                 </Border>
                 <TextBlock x:Name="statusTextBlock"
                            Foreground="AliceBlue"
+                           FontFamily="Century Gothic"
                            Margin="20,0,0,0"/>
             </Grid>
             <Grid>
@@ -146,19 +124,14 @@
                         BorderThickness="0"
                         FontFamily="Montserrat"
                         Cursor="Hand"
-                        Command="{Binding NewNotebookCommand}">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/Images/plus.png" 
-                                            Stretch="Uniform" 
-                                            AlignmentX="Center">
-                                <ImageBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.65" ScaleY="0.65"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </ImageBrush.RelativeTransform>
-                            </ImageBrush>
-                        </Button.Background>
+                        Command="{Binding NewNotebookCommand}"
+                        Background="Transparent" HorizontalContentAlignment="Left">
+                        <Button.Content>
+                            <TextBlock VerticalAlignment="Center" Margin="10,0,0,0" HorizontalAlignment="Left">
+                                <Run Text="&#xf0fe; " FontFamily="{StaticResource FontAwesome}" Foreground="AliceBlue" FontSize="25"/>
+                                <Run Text="New Notebook" FontFamily="Century Gothic" Foreground="AliceBlue" FontSize="25"/>
+                            </TextBlock>
+                        </Button.Content>
                     </Button>
                     <ListView DockPanel.Dock="Left"
                       Width="250"
@@ -172,7 +145,7 @@
                       ScrollViewer.VerticalScrollBarVisibility="Auto" 
                       ScrollViewer.CanContentScroll="True"
                       HorizontalContentAlignment="Stretch">
-                       <ListView.ItemContainerStyle>
+                        <ListView.ItemContainerStyle>
                             <Style TargetType="{x:Type ListViewItem}">
                                 <Setter Property="Background" Value="#0b2e62"/>
                                 <Setter Property="BorderBrush" Value="#0b2e62"/>
@@ -234,19 +207,15 @@
                         FontFamily="Montserrat"
                         Cursor="Hand"
                         Command="{Binding NewNoteCommand}"
-                        CommandParameter="{Binding SelectedNotebook}">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/Images/plus.png" 
-                                            Stretch="Uniform" 
-                                            AlignmentX="Center" TileMode="None">
-                            <ImageBrush.RelativeTransform>
-                                <TransformGroup>
-                                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.65" ScaleY="0.65"/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </ImageBrush.RelativeTransform>
-                        </ImageBrush>
-                    </Button.Background>
+                        CommandParameter="{Binding SelectedNotebook}"
+                        Background="Transparent" 
+                        HorizontalContentAlignment="Left">
+                        <Button.Content>
+                            <TextBlock VerticalAlignment="Center" Margin="10,0,0,0" HorizontalAlignment="Left">
+                                    <Run Text="&#xf0fe; " FontFamily="{StaticResource FontAwesome}" Foreground="AliceBlue" FontSize="25"/>
+                                    <Run Text="New Note" FontFamily="Century Gothic" Foreground="AliceBlue" FontSize="25"/>
+                            </TextBlock>
+                        </Button.Content>
                 </Button>
                 <ListView DockPanel.Dock="Left"
                   Width="180"
@@ -275,23 +244,27 @@
                          ToolBarTray.IsLocked="True" Margin="-3,0,0,0">
                     <Button Content="Speech" Foreground="#FFE4E4E4" 
                         Click="SpeechButton_Click" Margin="5,0,5,0"
-                        FontFamily="Century Gothic" />
+                        FontFamily="Century Gothic" 
+                            FontSize="20"/>
                     <ToggleButton 
                     Content="B"
                     Foreground="AliceBlue" 
                     x:Name="boldButton"
                     FontWeight="Bold"
                     Click="BoldButton_Click"
-                    FontFamily="Century Gothic"/>
+                    FontFamily="Century Gothic"
+                        FontSize="20"/>
                     <ToggleButton Content="I"
                                   Foreground="AliceBlue" 
-                              x:Name="italicButton"
-                              FontStyle="Italic"
-                              Click="italicButton_Click"
-                                  FontFamily="Century Gothic"/>
+                                  x:Name="italicButton"
+                                  FontStyle="Italic"
+                                  Click="italicButton_Click"
+                                  FontFamily="Century Gothic"
+                                  FontSize="20"/>
                     <ToggleButton x:Name="underlineButton"
                                   Foreground="AliceBlue" 
-                              Click="underlineButton_Click">
+                                  Click="underlineButton_Click"
+                                  FontSize="20">
                         <TextBlock Text="U"
                                TextDecorations="Underline"
                                    FontFamily="Century Gothic"/>
@@ -307,7 +280,8 @@
                     <Button Content="Save"
                             Foreground="AliceBlue" 
                             Click="SaveButton_Click" Margin="10,0,0,0"
-                            FontFamily="Century Gothic"/>
+                            FontFamily="Century Gothic"
+                            FontSize="20"/>
                 </ToolBar>
                 <RichTextBox Style="{DynamicResource NoteRichTextBoxStyle}" x:Name="richTextBoxContent"
                          TextChanged="richTextBoxContent_TextChanged"

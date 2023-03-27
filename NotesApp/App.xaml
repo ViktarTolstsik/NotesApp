@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:NotesApp"
              StartupUri="View/LoginWindow.xaml">
     <Application.Resources>
-       
+        <FontFamily x:Key="FontAwesome">/Fonts/Font Awesome 6 Free-Regular-400.otf#Font Awesome 6 Free Regular</FontFamily>
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
         <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
@@ -321,22 +321,6 @@
                             <Trigger Property="IsPressed" Value="true">
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border">
-                                    <Setter.Value>
-                                        <ImageBrush ImageSource="/Images/plus_disabled.png" 
-                                            Stretch="Uniform" 
-                                            AlignmentX="Center">
-                                            <ImageBrush.RelativeTransform>
-                                                <TransformGroup>
-                                                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.65" ScaleY="0.65"/>
-                                                    <SkewTransform CenterX="0.5" CenterY="0.5"/>
-                                                    <RotateTransform CenterX="0.5" CenterY="0.5"/>
-                                                    <TranslateTransform/>
-                                                </TransformGroup>
-                                            </ImageBrush.RelativeTransform>
-                                        </ImageBrush>
-                                    </Setter.Value>
-                                </Setter>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
