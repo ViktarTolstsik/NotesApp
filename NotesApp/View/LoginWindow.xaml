@@ -65,10 +65,10 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="25"/>
                     <ColumnDefinition Width="25"/>
-                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="NOTEIFY"
-                           Foreground="DarkGray"
+                           Foreground="AliceBlue"
                            FontSize="15"
                            FontFamily="Century Gothic"
                            Grid.Column="0"
@@ -77,65 +77,30 @@
                 <Button x:Name="btnMinimize"
                         Grid.Column="1"
                         BorderThickness="0"
-                        Content="-"
                         Foreground="White"
-                        FontSize="16"
-                        FontFamily="Montserrat"
                         Cursor="Hand"
-                        Click="btnMinimize_Click">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="LightBlue"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#FF608CD9"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="18"
-                                    Height="18"
-                                    CornerRadius="10"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
+                        Click="btnMinimize_Click"
+                        Background="Transparent" VerticalAlignment="Bottom">
+                    <Button.Content>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Padding="0,0,0,5">
+                                    <Run Text="&#xf2d1;" FontFamily="{StaticResource FontAwesome}" Foreground="AliceBlue" FontSize="20"/>
+                        </TextBlock>
+                    </Button.Content>
                 </Button>
                 <Button x:Name="btnClose"
                         Grid.Column="2"
                         BorderThickness="0"
-                        Content="X"
                         Foreground="White"
-                        FontSize="16"
                         FontFamily="Montserrat"
                         Cursor="Hand"
-                        Click="btnClose_Click">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="Tomato"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="DarkRed"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="18"
-                                    Height="18"
-                                    CornerRadius="10"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
-                            </Border>
-
-                        </ControlTemplate>
-                    </Button.Template>
+                        Click="btnClose_Click"                        
+                        Background="Transparent" 
+                        VerticalAlignment="Bottom">
+                        <Button.Content>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Padding="0,0,0,5">
+                                        <Run Text="&#xf410;" FontFamily="{StaticResource FontAwesome}" Foreground="AliceBlue" FontSize="20"/>
+                            </TextBlock>
+                        </Button.Content>
                 </Button>
             </Grid>
         </Grid>
@@ -143,7 +108,7 @@
                     Margin="0,65,0,0"
                     Width="250">
             <TextBlock Text="SIGN IN"
-                       Foreground="AntiqueWhite"
+                       Foreground="AliceBlue"
                        FontSize="25"
                        FontWeight="ExtraLight"
                        FontFamily="Century Gothic"
@@ -200,7 +165,7 @@
                     Margin="0,65,0,0"
                     Width="250">
             <TextBlock Text="SIGN UP"
-                       Foreground="AntiqueWhite"
+                       Foreground="AliceBlue"
                        FontSize="25"
                        FontWeight="ExtraLight"
                        FontFamily="Century Gothic"

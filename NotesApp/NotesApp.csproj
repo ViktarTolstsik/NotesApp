@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Font Awesome 6 Brands-Regular-400.otf" />
     <None Remove="Fonts\Font Awesome 6 Free-Regular-400.otf" />
+    <None Remove="Fonts\Font Awesome 6 Free-Solid-900.otf" />
     <None Remove="Images\517256.jpg" />
     <None Remove="Images\bullet.png" />
     <None Remove="Images\bullet_alt.png" />
@@ -40,7 +42,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\Font Awesome 6 Brands-Regular-400.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Fonts\Font Awesome 6 Free-Regular-400.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Font Awesome 6 Free-Solid-900.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\517256.jpg">
