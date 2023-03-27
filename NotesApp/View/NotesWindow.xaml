@@ -62,7 +62,8 @@
                         BorderThickness="0"
                         Cursor="Hand"
                         Click="btnMinimize_Click" Margin="0,0,0,0"
-                        Background="Transparent" VerticalAlignment="Bottom">
+                        VerticalAlignment="Bottom"
+                        Style="{DynamicResource WindowButtonStyle}">
                         <Button.Content>
                             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Padding="0,0,0,10">
                                 <TextBlock.Style>
@@ -70,7 +71,7 @@
                                         <Setter Property= "Foreground" Value="AliceBlue"/>
                                         <Style.Triggers>
                                             <Trigger Property ="IsMouseOver" Value="True">
-                                                <Setter Property= "Foreground" Value="Red"/>
+                                                <Setter Property= "Foreground" Value="#0e71cd"/>
                                             </Trigger>
                                         </Style.Triggers>
                                     </Style>
@@ -84,15 +85,16 @@
                         BorderThickness="0"
                         Cursor="Hand"
                         Click="btnMinimize_Click" Margin="0"
-                        Background="Transparent" VerticalAlignment="Bottom" Padding="0,0,0,10">
+                        VerticalAlignment="Center" Padding="0,0,0,10"
+                        Style="{DynamicResource WindowButtonStyle}">
                         <Button.Content>
-                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <TextBlock>
                                 <TextBlock.Style>
                                     <Style TargetType="TextBlock">
                                         <Setter Property= "Foreground" Value="AliceBlue"/>
                                         <Style.Triggers>
                                             <Trigger Property ="IsMouseOver" Value="True">
-                                                <Setter Property= "Foreground" Value="Red"/>
+                                                <Setter Property= "Foreground" Value="#0e71cd"/>
                                             </Trigger>
                                         </Style.Triggers>
                                     </Style>
@@ -106,7 +108,8 @@
                         BorderThickness="0"
                         Cursor="Hand"
                         Click="btnClose_Click"
-                        Background="Transparent" VerticalAlignment="Bottom" Padding="0,0,0,10">
+                        VerticalAlignment="Center" Padding="0,0,0,10"
+                        Style="{DynamicResource WindowButtonStyle}" HorizontalAlignment="Center">
                         <Button.Content>
                             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
                                 <TextBlock.Style>
@@ -114,7 +117,7 @@
                                         <Setter Property= "Foreground" Value="AliceBlue"/>
                                         <Style.Triggers>
                                             <Trigger Property ="IsMouseOver" Value="True">
-                                                <Setter Property= "Foreground" Value="Red"/>
+                                                <Setter Property= "Foreground" Value="#0e71cd"/>
                                             </Trigger>
                                         </Style.Triggers>
                                     </Style>
@@ -152,25 +155,23 @@
                     </Grid.RowDefinitions>
                     <Button x:Name="btnNewNotebook"
                         BorderThickness="0"
-                        FontFamily="Montserrat"
-                        Cursor="Hand"
                         Command="{Binding NewNotebookCommand}"
                         HorizontalContentAlignment="Left"
-                        Background="Transparent">
+                        Style="{DynamicResource NotesButtonStyle}">
                         <Button.Content>
-                            <TextBlock VerticalAlignment="Center" Margin="10,0,0,0" HorizontalAlignment="Left">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Cursor="Hand" Width="240">
                                 <TextBlock.Style>
                                     <Style TargetType="TextBlock">
                                         <Setter Property= "Foreground" Value="AliceBlue"/>
                                         <Style.Triggers>
                                             <Trigger Property ="IsMouseOver" Value="True">
-                                                <Setter Property= "Foreground" Value="Red"/>
+                                                <Setter Property= "Foreground" Value="#0e71cd"/>
                                             </Trigger>
                                         </Style.Triggers>
                                     </Style>
                                 </TextBlock.Style>
-                                <Run Text="&#xf0fe; " FontFamily="{StaticResource FontAwesomeSolid}" Foreground="AliceBlue" FontSize="25"/>
-                                <Run Text="New Notebook" FontFamily="Century Gothic" Foreground="AliceBlue" FontSize="25"/>
+                                <Run Text="&#xf0fe; " FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
+                                <Run Text="New Notebook" FontFamily="Century Gothic" FontSize="25"/>
                             </TextBlock>
                         </Button.Content>
                     </Button>
@@ -245,28 +246,26 @@
                 <Button x:Name="btnNewNote"
                         Grid.Row="0"
                         BorderThickness="0"
-                        FontFamily="Montserrat"
-                        Cursor="Hand"
                         Command="{Binding NewNoteCommand}"
                         CommandParameter="{Binding SelectedNotebook}"
-                        Background="Transparent" 
-                        HorizontalContentAlignment="Left">
-                        <Button.Content>
-                            <TextBlock VerticalAlignment="Center" Margin="10,0,0,0" HorizontalAlignment="Left">
+                        HorizontalContentAlignment="Left"
+                        Style="{DynamicResource NotesButtonStyle}">
+                    <Button.Content>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="175">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
                                     <Setter Property= "Foreground" Value="AliceBlue"/>
                                     <Style.Triggers>
                                         <Trigger Property ="IsMouseOver" Value="True">
-                                            <Setter Property= "Foreground" Value="Red"/>
+                                            <Setter Property= "Foreground" Value="#0e71cd"/>
                                         </Trigger>
                                     </Style.Triggers>
                                 </Style>
                             </TextBlock.Style>
-                                    <Run Text="&#xf0fe; " FontFamily="{StaticResource FontAwesomeSolid}" Foreground="AliceBlue" FontSize="25"/>
-                                    <Run Text="New Note" FontFamily="Century Gothic" Foreground="AliceBlue" FontSize="25"/>
-                            </TextBlock>
-                        </Button.Content>
+                            <Run Text="&#xf0fe; " FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
+                            <Run Text="New Note" FontFamily="Century Gothic" FontSize="25"/>
+                        </TextBlock>
+                    </Button.Content>
                 </Button>
                 <ListView DockPanel.Dock="Left"
                   Width="180"

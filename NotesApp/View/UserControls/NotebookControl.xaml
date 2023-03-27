@@ -33,15 +33,17 @@
                    MaxWidth="240"
                    TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
         <Button Grid.Column="2" Height="20" VerticalAlignment="Stretch"
-                Background="Transparent" BorderThickness="0">
+                Background="Transparent" BorderThickness="0"
+                Style="{DynamicResource EditButtonStyle}">
             <Button.Content>
-                <TextBlock Text="&#xf303;" FontFamily="{StaticResource FontAwesomeSolid}" Foreground="AliceBlue" FontSize="15"/>
+                <TextBlock Text="&#xf303;" FontFamily="{StaticResource FontAwesomeSolid}" Foreground="AliceBlue" FontSize="15" Cursor="Hand"/>
             </Button.Content>
         </Button>
         <Button Grid.Column="3" Height="20" VerticalAlignment="Stretch"
-                Background="Transparent" BorderThickness="0">
+                Background="Transparent" BorderThickness="0"
+                Style="{DynamicResource EditButtonStyle}">
             <Button.Content>
-                <TextBlock Text="&#xf2ed;" FontFamily="{StaticResource FontAwesomeSolid}" Foreground="#FF650C0C" FontSize="15"/>
+                <TextBlock Text="&#xf2ed;" FontFamily="{StaticResource FontAwesomeSolid}" Foreground="#FF650C0C" FontSize="15" Cursor="Hand"/>
             </Button.Content>
         </Button>
     </Grid>
