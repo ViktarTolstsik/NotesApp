@@ -250,7 +250,7 @@ namespace NotesApp.View
             listItem.EditNotebookButton.Visibility = Visibility.Visible;
             listItem.DeleteNotebookButton.Visibility = Visibility.Visible;
 
-            object obj = Test.FindName("btnNewNotebook");
+           //???????? object obj = Test.FindName("btnNewNotebook");
 
             List<NotebookControl> notebookList = new List<NotebookControl>();
 
