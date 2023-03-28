@@ -46,6 +46,20 @@ namespace NotesApp.View.UserControls
         public NotebookControl()
         {
             InitializeComponent();
+            EditNotebookButton.Visibility = Visibility.Hidden;
+            DeleteNotebookButton.Visibility = Visibility.Hidden;
+        }
+
+        private void UserControl_MouseLeave(object sender, MouseEventArgs e)
+        {
+            EditNotebookButton.Visibility = Visibility.Hidden;
+            DeleteNotebookButton.Visibility = Visibility.Hidden;
+        }
+
+        private void UserControl_MouseEnter(object sender, MouseEventArgs e)
+        {
+            EditNotebookButton.Visibility = Visibility.Visible;
+            DeleteNotebookButton.Visibility = Visibility.Visible;
         }
     }
 }

@@ -5,7 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NotesApp.View.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="300">
+             d:DesignHeight="100" d:DesignWidth="300"
+             Background="Transparent"
+             MouseEnter="UserControl_MouseEnter"
+             MouseLeave="UserControl_MouseLeave">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -34,14 +37,16 @@
                    TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
         <Button Grid.Column="2" Height="20" VerticalAlignment="Stretch"
                 Background="Transparent" BorderThickness="0"
-                Style="{DynamicResource EditButtonStyle}">
+                Style="{DynamicResource EditButtonStyle}"
+                x:Name="EditNotebookButton">
             <Button.Content>
                 <TextBlock Text="&#xf303;" FontFamily="{StaticResource FontAwesomeSolid}" Foreground="AliceBlue" FontSize="15" Cursor="Hand"/>
             </Button.Content>
         </Button>
         <Button Grid.Column="3" Height="20" VerticalAlignment="Stretch"
                 Background="Transparent" BorderThickness="0"
-                Style="{DynamicResource EditButtonStyle}">
+                Style="{DynamicResource EditButtonStyle}"
+                x:Name="DeleteNotebookButton">
             <Button.Content>
                 <TextBlock Text="&#xf2ed;" FontFamily="{StaticResource FontAwesomeSolid}" Foreground="#FF650C0C" FontSize="15" Cursor="Hand"/>
             </Button.Content>
