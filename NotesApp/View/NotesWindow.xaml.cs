@@ -1,4 +1,6 @@
-﻿using NotesApp.ViewModel;
+﻿using NotesApp.Model;
+using NotesApp.View.UserControls;
+using NotesApp.ViewModel;
 using NotesApp.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
@@ -81,6 +83,7 @@ namespace NotesApp.View
             {
                 viewModel.GetNotebooks();
             }
+
         }
 
         private void ViewModel_SelectedNoteChanged(object? sender, EventArgs e)
@@ -240,6 +243,27 @@ namespace NotesApp.View
             {
                 DragMove();
             }
+        }
+        private void OnNotebookMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            NotebookControl listItem = (NotebookControl)sender;
+            listItem.EditNotebookButton.Visibility = Visibility.Visible;
+            listItem.DeleteNotebookButton.Visibility = Visibility.Visible;
+
+            object obj = Test.FindName("btnNewNotebook");
+
+            List<NotebookControl> notebookList = new List<NotebookControl>();
+
+            //foreach (ListViewItem item in NotebooksListView.ItemTemplate.)
+            //{
+            //    if (item.Content != listItem)
+            //    {
+            //        Button otherEditButton = (Button)item.FindName("EditNotebookButton");
+            //        Button otherDeleteButton = (Button)item.FindName("DeleteNotebookButton");
+            //        otherDeleteButton.Visibility = Visibility.Hidden;
+            //        otherEditButton.Visibility = Visibility.Hidden;
+            //    }
+            //}
         }
     }
 }

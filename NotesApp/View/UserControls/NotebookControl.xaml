@@ -6,9 +6,7 @@
              xmlns:local="clr-namespace:NotesApp.View.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="300"
-             Background="Transparent"
-             MouseEnter="UserControl_MouseEnter"
-             MouseLeave="UserControl_MouseLeave">
+             Background="Transparent">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

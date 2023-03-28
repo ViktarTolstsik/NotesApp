@@ -130,7 +130,7 @@
             </Grid>
             <Grid>
                 <Border Background="Transparent"/>
-                <Grid>
+                <Grid x:Name="Test">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
                         <RowDefinition MinHeight="500"/>
@@ -157,7 +157,8 @@
                             </TextBlock>
                         </Button.Content>
                     </Button>
-                    <ListView DockPanel.Dock="Left"
+                    <ListView x:Name="NotebooksListView" 
+                      DockPanel.Dock="Left"
                       Width="250"
                       Background="{x:Null}"
                       Grid.Row="1"
@@ -196,7 +197,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <uc:NotebookControl Notebook="{Binding}">
+                                    <uc:NotebookControl Notebook="{Binding}" MouseDown="OnNotebookMouseDown" x:Name="NotebookItem">
                                         <uc:NotebookControl.ContextMenu>
                                             <ContextMenu>
                                                 <MenuItem Header="Rename"
