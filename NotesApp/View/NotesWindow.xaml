@@ -110,7 +110,7 @@
                                         <Setter Property= "Foreground" Value="AliceBlue"/>
                                         <Style.Triggers>
                                             <Trigger Property ="IsMouseOver" Value="True">
-                                                <Setter Property= "Foreground" Value="#0e71cd"/>
+                                                <Setter Property= "Foreground" Value="#FF650C0C"/>
                                             </Trigger>
                                         </Style.Triggers>
                                     </Style>
@@ -252,7 +252,7 @@
                     </Button.Content>
                 </Button>
                 <ListView DockPanel.Dock="Left"
-                  Width="180"
+                  Width="210"
                   BorderThickness="0"
                   Grid.Row="1"
                   SelectedValue="{Binding SelectedNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
