@@ -20,6 +20,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace NotesApp.View
 {
@@ -104,7 +105,7 @@ namespace NotesApp.View
                 richTextBoxContent.IsEnabled = true;
                 statusTextBlock.Visibility = Visibility.Visible;
             }
-            
+
         }
 
         private void Recognizer_SpeechRecognized(object? sender, SpeechRecognizedEventArgs e)
@@ -159,10 +160,10 @@ namespace NotesApp.View
         {
             var selectedWeight = richTextBoxContent.Selection.GetPropertyValue(FontWeightProperty);
             boldButton.IsChecked = (selectedWeight != DependencyProperty.UnsetValue) && selectedWeight.Equals(FontWeights.Bold);
-           
+
             var selectedStyle = richTextBoxContent.Selection.GetPropertyValue(FontStyleProperty);
             italicButton.IsChecked = (selectedStyle != DependencyProperty.UnsetValue) && selectedStyle.Equals(FontStyles.Italic);
-           
+
             var selectedDecorations = richTextBoxContent.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
             underlineButton.IsChecked = (selectedDecorations != DependencyProperty.UnsetValue) && selectedDecorations.Equals(TextDecorations.Underline);
 
@@ -250,20 +251,33 @@ namespace NotesApp.View
             listItem.EditNotebookButton.Visibility = Visibility.Visible;
             listItem.DeleteNotebookButton.Visibility = Visibility.Visible;
 
-           //???????? object obj = Test.FindName("btnNewNotebook");
+            var obj = FindNotebookControls(NotebooksListView);
 
-            List<NotebookControl> notebookList = new List<NotebookControl>();
+            foreach (NotebookControl item in obj)
+            {
+                if (item != listItem)
+                {
+                    Button otherEditButton = (Button)item.FindName("EditNotebookButton");
+                    Button otherDeleteButton = (Button)item.FindName("DeleteNotebookButton");
+                    otherDeleteButton.Visibility = Visibility.Hidden;
+                    otherEditButton.Visibility = Visibility.Hidden;
+                }
+            }
+        }
 
-            //foreach (ListViewItem item in NotebooksListView.ItemTemplate.)
-            //{
-            //    if (item.Content != listItem)
-            //    {
-            //        Button otherEditButton = (Button)item.FindName("EditNotebookButton");
-            //        Button otherDeleteButton = (Button)item.FindName("DeleteNotebookButton");
-            //        otherDeleteButton.Visibility = Visibility.Hidden;
-            //        otherEditButton.Visibility = Visibility.Hidden;
-            //    }
-            //}
+        private List<NotebookControl> FindNotebookControls(DependencyObject parent)
+        {
+            var list = new List<NotebookControl> { };
+            for (int count = 0; count < VisualTreeHelper.GetChildrenCount(parent); count++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, count);
+                if (child is NotebookControl)
+                {
+                    list.Add(child as NotebookControl);
+                }
+                list.AddRange(FindNotebookControls(child));
+            }
+            return list;
         }
     }
 }

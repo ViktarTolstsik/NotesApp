@@ -197,7 +197,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <uc:NotebookControl Notebook="{Binding}" MouseDown="OnNotebookMouseDown" x:Name="NotebookItem">
+                                    <uc:NotebookControl Notebook="{Binding}" MouseDown="OnNotebookMouseDown"  x:Name="NotebookItem">
                                         <uc:NotebookControl.ContextMenu>
                                             <ContextMenu>
                                                 <MenuItem Header="Rename"
