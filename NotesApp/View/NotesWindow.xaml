@@ -45,7 +45,7 @@
                     <Border Grid.Column="0" Background="Transparent"  CornerRadius="15,0,0,0"/>
                     <TextBlock Text="NOTEIFY"
                            Foreground="Azure"
-                           FontSize="30"
+                           FontSize="35"
                            FontFamily="Century Gothic"
                            Grid.Column="0"
                            VerticalAlignment="Center"
@@ -232,7 +232,8 @@
                         Command="{Binding NewNoteCommand}"
                         CommandParameter="{Binding SelectedNotebook}"
                         HorizontalContentAlignment="Left"
-                        Style="{DynamicResource NotesButtonStyle}">
+                        Style="{DynamicResource NotesButtonStyle}"
+                        Cursor="Hand">
                     <Button.Content>
                         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Width="175">
                             <TextBlock.Style>
@@ -280,46 +281,101 @@
                             <GradientStop Color="#0c70cc" Offset="1"/>
                         </LinearGradientBrush>
                     </ToolBar.Background>
-                    <Button Content="Speech" Foreground="AliceBlue" 
-                        Click="SpeechButton_Click" Margin="5,0,5,0"
-                        FontFamily="Century Gothic" 
-                            FontSize="20"/>
-                    <ToggleButton 
-                    Content="B"
-                    Foreground="AliceBlue" 
-                    x:Name="boldButton"
-                    FontWeight="Bold"
-                    Click="BoldButton_Click"
-                    FontFamily="Century Gothic"
-                        FontSize="20"/>
-                    <ToggleButton Content="I"
-                                  Foreground="AliceBlue" 
-                                  x:Name="italicButton"
-                                  FontStyle="Italic"
-                                  Click="italicButton_Click"
-                                  FontFamily="Century Gothic"
-                                  FontSize="20"/>
-                    <ToggleButton x:Name="underlineButton"
-                                  Foreground="AliceBlue" 
-                                  Click="underlineButton_Click"
-                                  FontSize="20">
-                        <TextBlock Text="U"
-                               TextDecorations="Underline"
-                                   FontFamily="Century Gothic"/>
-                    </ToggleButton>
                     <ComboBox x:Name="fontFamilyComboBox"
-                          Width="100"
+                          Width="150"
                           ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}"
                           SelectionChanged="fontFamilyComboBox_SelectionChanged" Margin="10,0,1,0" Height="25"/>
                     <ComboBox x:Name="fontSizeComboBox"
-                          Width="37"
+                          Width="50"
                           IsEditable="True"
                           TextBoxBase.TextChanged="fontSizeComboBox_TextChanged" Height="25"/>
-                    <Button Content="Save"
-                            Foreground="AliceBlue" 
-                            Click="SaveButton_Click" Margin="10,0,0,0"
-                            FontFamily="Century Gothic"
-                            FontSize="20"/>
+                    <ToggleButton 
+                    Foreground="AliceBlue" 
+                        Margin="10,0,0,0"
+                    x:Name="boldButton"
+                    Click="BoldButton_Click">
+                        <ToggleButton.Content>
+                            <TextBlock Text="&#xf032;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                    <ToggleButton Foreground="AliceBlue" 
+                                  x:Name="italicButton"
+                                  Click="italicButton_Click">
+                        <ToggleButton.Content>
+                            <TextBlock Text="&#xf033;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                    <ToggleButton x:Name="underlineButton"
+                                  Foreground="AliceBlue" 
+                                  Click="underlineButton_Click">
+                        <TextBlock Text="&#xf0cd;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
+                    </ToggleButton>
+                    <Button Foreground="AliceBlue" 
+                            Margin="10,0,0,0">
+                        <Button.Content>
+                            <TextBlock Text="&#xf036;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
+                        </Button.Content>
+                    </Button>
+                    <Button Foreground="AliceBlue" 
+                            Margin="5,0,0,0">
+                        <Button.Content>
+                            <TextBlock Text="&#xf037;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
+                        </Button.Content>
+                    </Button>
+                    <Button Foreground="AliceBlue" 
+                            Margin="5,0,0,0">
+                        <Button.Content>
+                            <TextBlock Text="&#xf039;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
+                        </Button.Content>
+                    </Button>
+                    <Button Foreground="AliceBlue" 
+                            Margin="5,0,10,0">
+                        <Button.Content>
+                            <TextBlock Text="&#xf038;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
+                        </Button.Content>
+                    </Button>
+                    <Button Foreground="AliceBlue" 
+                            Margin="5,0,0,0">
+                        <Button.Content>
+                            <TextBlock Text="&#xf0cb;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
+                        </Button.Content>
+                    </Button>
+                    <Button Foreground="AliceBlue" 
+                            Margin="5,0,10,0">
+                        <Button.Content>
+                            <TextBlock Text="&#xf0ca;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
+                        </Button.Content>
+                    </Button>
+                    <Button Foreground="AliceBlue" 
+                            Margin="5,0,10,0">
+                        <Button.Content>
+                            <TextBlock Text="&#xf03e;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
+                        </Button.Content>
+                    </Button>
+                    <Button Foreground="AliceBlue" 
+                            Margin="5,0,0,0">
+                        <Button.Content>
+                            <TextBlock Text="&#xf12c;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
+                        </Button.Content>
+                    </Button>
+                    <Button Foreground="AliceBlue" 
+                            Margin="5,0,0,0">
+                        <Button.Content>
+                            <TextBlock Text="&#xf12b;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
+                        </Button.Content>
+                    </Button>
+                    <Button Foreground="AliceBlue" 
+                        Click="SpeechButton_Click" Margin="10,0,0,0">
+                        <Button.Content>
+                            <TextBlock Text="&#xf130;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
+                        </Button.Content>
+                    </Button>
+                    <Button Foreground="AliceBlue" 
+                            Click="SaveButton_Click" Margin="10,0,0,0">
+                        <Button.Content>
+                            <TextBlock Text="&#xf0c7;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
+                        </Button.Content>
+                    </Button>
                 </ToolBar>
                 <RichTextBox Style="{DynamicResource NoteRichTextBoxStyle}" x:Name="richTextBoxContent"
                          TextChanged="richTextBoxContent_TextChanged"

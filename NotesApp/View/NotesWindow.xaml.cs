@@ -68,8 +68,9 @@ namespace NotesApp.View
             NoteToolBar.IsEnabled = false;
             richTextBoxContent.AppendText("Welcome to Noteify!");
             TextRange textRange = new TextRange(richTextBoxContent.Document.ContentStart, richTextBoxContent.Document.ContentEnd);
-            textRange.ApplyPropertyValue(TextElement.FontSizeProperty, fontSizes[9]);
+            textRange.ApplyPropertyValue(TextElement.FontSizeProperty, fontSizes[10]);
             textRange.ApplyPropertyValue(Paragraph.TextAlignmentProperty, TextAlignment.Center);
+            textRange.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);
             richTextBoxContent.IsEnabled = false;
             statusTextBlock.Visibility = Visibility.Hidden;
         }
