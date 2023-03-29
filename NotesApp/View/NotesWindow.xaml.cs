@@ -251,9 +251,9 @@ namespace NotesApp.View
             listItem.EditNotebookButton.Visibility = Visibility.Visible;
             listItem.DeleteNotebookButton.Visibility = Visibility.Visible;
 
-            var obj = FindNotebookControls(NotebooksListView);
+            var notebookControls = FindNotebookControls(NotebooksListView);
 
-            foreach (NotebookControl item in obj)
+            foreach (NotebookControl item in notebookControls)
             {
                 if (item != listItem)
                 {
