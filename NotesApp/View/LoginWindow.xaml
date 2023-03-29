@@ -67,7 +67,7 @@
                     <ColumnDefinition Width="25"/>
                     <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="NOTEIFY"
+                <TextBlock Text="NOTEWORTHY"
                            Foreground="AliceBlue"
                            FontSize="15"
                            FontFamily="Century Gothic"

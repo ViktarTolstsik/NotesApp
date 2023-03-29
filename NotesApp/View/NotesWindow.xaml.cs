@@ -66,7 +66,7 @@ namespace NotesApp.View
             List<double> fontSizes = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 24, 28, 32 };
             fontSizeComboBox.ItemsSource = fontSizes;
             NoteToolBar.IsEnabled = false;
-            richTextBoxContent.AppendText("Welcome to Noteify!");
+            richTextBoxContent.AppendText("Welcome to NoteWorthy!");
             TextRange textRange = new TextRange(richTextBoxContent.Document.ContentStart, richTextBoxContent.Document.ContentEnd);
             textRange.ApplyPropertyValue(TextElement.FontSizeProperty, fontSizes[10]);
             textRange.ApplyPropertyValue(Paragraph.TextAlignmentProperty, TextAlignment.Center);

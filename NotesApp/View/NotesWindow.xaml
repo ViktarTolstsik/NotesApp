@@ -36,14 +36,14 @@
                 <Border CornerRadius="15,15,0,0" Background="Transparent"/>
                 <Grid Margin="0,0,5,0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="280"/>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="40"/>
                         <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="50"/>
                     </Grid.ColumnDefinitions>
                     <Border Grid.Column="0" Background="Transparent"  CornerRadius="15,0,0,0"/>
-                    <TextBlock Text="NOTEIFY"
+                    <TextBlock Text="NOTEWORTHY"
                            Foreground="Azure"
                            FontSize="35"
                            FontFamily="Century Gothic"
