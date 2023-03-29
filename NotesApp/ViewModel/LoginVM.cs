@@ -188,6 +188,7 @@ namespace NotesApp.ViewModel
             if (result)
             {
                 Authenticated?.Invoke(this, new EventArgs());
+                App.UserName = User.Name;
             }
 		}
 

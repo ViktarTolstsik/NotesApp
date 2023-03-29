@@ -45,7 +45,7 @@
                     <Border Grid.Column="0" Background="Transparent"  CornerRadius="15,0,0,0"/>
                     <TextBlock Text="NOTEWORTHY"
                            Foreground="Azure"
-                           FontSize="35"
+                           FontSize="30"
                            FontFamily="Century Gothic"
                            Grid.Column="0"
                            VerticalAlignment="Center"
@@ -270,10 +270,15 @@
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
                 <ToolBar x:Name="NoteToolBar"
                          Padding="0,0,0,0"
                          FontSize="16" 
-                         Grid.Row="1" 
+                         Grid.Row="1"
+                         Grid.ColumnSpan="2"
                          Height="40"
                          ToolBarTray.IsLocked="True" Margin="-3,0,0,0">
                     <ToolBar.Background>
@@ -392,10 +397,17 @@
                         </Style>
                     </TextBox.Style>
                 </TextBox>
+                <TextBlock Grid.Row="0"
+                           Grid.Column="1">
+                    <Run Text="Welcome, "/>
+                    <Run x:Name="UserNameWelcome"/>
+                    <Run Text="!"/>
+                </TextBlock>
                 <RichTextBox Style="{DynamicResource NoteRichTextBoxStyle}" x:Name="richTextBoxContent"
                          TextChanged="richTextBoxContent_TextChanged"
                          SelectionChanged="richTextBoxContent_SelectionChanged"
                          Grid.Row="2"
+                         Grid.ColumnSpan="2"
                          Margin="0,5,5,5"
                          BorderThickness="0" Background="Snow"/>
             </Grid>

@@ -83,6 +83,7 @@ namespace NotesApp.View
             if (!string.IsNullOrEmpty(App.UserId))
             {
                 viewModel.GetNotebooks();
+                UserNameWelcome.Text = App.UserName;
             }
 
         }
