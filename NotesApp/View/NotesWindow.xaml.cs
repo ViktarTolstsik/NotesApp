@@ -71,6 +71,7 @@ namespace NotesApp.View
             textRange.ApplyPropertyValue(TextElement.FontSizeProperty, fontSizes[10]);
             textRange.ApplyPropertyValue(Paragraph.TextAlignmentProperty, TextAlignment.Center);
             textRange.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);
+            textRange.ApplyPropertyValue(TextElement.ForegroundProperty, new SolidColorBrush(System.Windows.Media.Color.FromRgb(12,49,103)));
             richTextBoxContent.IsEnabled = false;
             statusTextBlock.Visibility = Visibility.Hidden;
         }
