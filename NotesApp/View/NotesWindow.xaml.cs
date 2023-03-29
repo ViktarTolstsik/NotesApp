@@ -54,8 +54,7 @@ namespace NotesApp.View
 
             var fontFamilies = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
             fontFamilyComboBox.ItemsSource = fontFamilies;
-            //Bings answer
-            /*In the above example, the ItemTemplate property of the fontFamilyComboBox is set to a new DataTemplate. 
+            /*ItemTemplate property of the fontFamilyComboBox is set to a new DataTemplate. 
              *The FrameworkElementFactory class is used to create a new TextBlock element, 
              *which is then used to display the font family name and set the font family of the text to the font family being displayed.*/
             fontFamilyComboBox.ItemTemplate = new DataTemplate();
@@ -63,7 +62,6 @@ namespace NotesApp.View
             textBlockFactory.SetBinding(TextBlock.TextProperty, new Binding());
             textBlockFactory.SetBinding(TextBlock.FontFamilyProperty, new Binding());
             fontFamilyComboBox.ItemTemplate.VisualTree = textBlockFactory;
-            //
 
             List<double> fontSizes = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 24, 28, 32 };
             fontSizeComboBox.ItemsSource = fontSizes;
