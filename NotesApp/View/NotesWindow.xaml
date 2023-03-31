@@ -271,14 +271,14 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="650"></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <ToolBar x:Name="NoteToolBar"
                          Padding="0,0,0,0"
                          FontSize="16" 
                          Grid.Row="1"
-                         Grid.ColumnSpan="2"
+                         Grid.ColumnSpan="3"
                          Height="40"
                          ToolBarTray.IsLocked="True" Margin="-3,0,0,0">
                     <ToolBar.Background>
@@ -385,7 +385,7 @@
                 </ToolBar>
                 <TextBox Grid.Row="0"
                          Margin="0,5,5,0"
-                         Text="{Binding Path=SelectedNote.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                         Text="{Binding Path=SelectedNote.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Setter Property="BorderThickness" Value="0"/>
@@ -397,8 +397,12 @@
                         </Style>
                     </TextBox.Style>
                 </TextBox>
-                <TextBlock Grid.Row="0"
-                           Grid.Column="1">
+                <TextBlock Padding="0,5,0,0"
+                           Grid.Row="0"
+                           Grid.Column="2"
+                           FontFamily="Century Gothic"
+                           Foreground="AliceBlue"
+                           FontSize="20">
                     <Run Text="Welcome, "/>
                     <Run x:Name="UserNameWelcome"/>
                     <Run Text="!"/>
@@ -407,7 +411,7 @@
                          TextChanged="richTextBoxContent_TextChanged"
                          SelectionChanged="richTextBoxContent_SelectionChanged"
                          Grid.Row="2"
-                         Grid.ColumnSpan="2"
+                         Grid.ColumnSpan="3"
                          Margin="0,5,5,5"
                          BorderThickness="0" Background="Snow"/>
             </Grid>
