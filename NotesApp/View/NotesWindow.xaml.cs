@@ -280,5 +280,10 @@ namespace NotesApp.View
             }
             return list;
         }
+
+        private void btnWindowState_Click(object sender, RoutedEventArgs e)
+        {
+           this.WindowState = WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
+        }
     }
 }
