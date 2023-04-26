@@ -321,55 +321,73 @@
                         <TextBlock Text="&#xf0cd;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
                     </ToggleButton>
                     <Button Foreground="AliceBlue" 
-                            Margin="10,0,0,0">
+                            Margin="10,0,0,0"
+                            x:Name="alignLeftButton"
+                            Click="alignLeftButton_Click">
                         <Button.Content>
                             <TextBlock Text="&#xf036;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
                         </Button.Content>
                     </Button>
                     <Button Foreground="AliceBlue" 
-                            Margin="5,0,0,0">
+                            Margin="5,0,0,0"
+                            x:Name="alignCenterButton"
+                            Click="alignCenterButton_Click">
                         <Button.Content>
                             <TextBlock Text="&#xf037;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
                         </Button.Content>
                     </Button>
                     <Button Foreground="AliceBlue" 
-                            Margin="5,0,0,0">
+                            Margin="5,0,0,0"
+                            x:Name="alignJustifyButton"
+                            Click="alignJustifyButton_Click">
                         <Button.Content>
                             <TextBlock Text="&#xf039;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
                         </Button.Content>
                     </Button>
                     <Button Foreground="AliceBlue" 
-                            Margin="5,0,10,0">
+                            Margin="5,0,10,0"
+                            x:Name="alignRightButton"
+                            Click="alignRightButton_Click">
                         <Button.Content>
                             <TextBlock Text="&#xf038;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
                         </Button.Content>
                     </Button>
                     <Button Foreground="AliceBlue" 
-                            Margin="5,0,0,0">
+                            Margin="5,0,0,0"
+                            x:Name="orderedListButton"
+                            Click="orderedListButton_Click">
                         <Button.Content>
                             <TextBlock Text="&#xf0cb;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
                         </Button.Content>
                     </Button>
                     <Button Foreground="AliceBlue" 
-                            Margin="5,0,10,0">
+                            Margin="5,0,10,0"
+                            x:Name="unorderedListButton"
+                            Click="unorderedListButton_Click">
                         <Button.Content>
                             <TextBlock Text="&#xf0ca;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
                         </Button.Content>
                     </Button>
                     <Button Foreground="AliceBlue" 
-                            Margin="5,0,10,0">
+                            Margin="5,0,10,0"
+                            x:Name="imageButton"
+                            Click="imageButton_Click">
                         <Button.Content>
                             <TextBlock Text="&#xf03e;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
                         </Button.Content>
                     </Button>
                     <Button Foreground="AliceBlue" 
-                            Margin="5,0,0,0">
+                            Margin="5,0,0,0"
+                            x:Name="subscriptButton"
+                            Click="subscriptButton_Click">
                         <Button.Content>
                             <TextBlock Text="&#xf12c;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
                         </Button.Content>
                     </Button>
                     <Button Foreground="AliceBlue" 
-                            Margin="5,0,0,0">
+                            Margin="5,0,0,0"
+                            x:Name="superscriptButton"
+                            Click="superscriptButton_Click">
                         <Button.Content>
                             <TextBlock Text="&#xf12b;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="25"/>
                         </Button.Content>

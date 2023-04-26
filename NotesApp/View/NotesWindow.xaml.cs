@@ -49,7 +49,7 @@ namespace NotesApp.View
             Grammar grammar = new Grammar(builder);
 
             recognizer.LoadGrammar(grammar);
-            recognizer.SetInputToDefaultAudioDevice();
+            //recognizer.SetInputToDefaultAudioDevice();
             recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
 
             var fontFamilies = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
@@ -71,7 +71,7 @@ namespace NotesApp.View
             textRange.ApplyPropertyValue(TextElement.FontSizeProperty, fontSizes[10]);
             textRange.ApplyPropertyValue(Paragraph.TextAlignmentProperty, TextAlignment.Center);
             textRange.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);
-            textRange.ApplyPropertyValue(TextElement.ForegroundProperty, new SolidColorBrush(System.Windows.Media.Color.FromRgb(12,49,103)));
+            textRange.ApplyPropertyValue(TextElement.ForegroundProperty, new SolidColorBrush(System.Windows.Media.Color.FromRgb(12, 49, 103)));
             richTextBoxContent.IsEnabled = false;
             statusTextBlock.Visibility = Visibility.Hidden;
         }
@@ -182,7 +182,6 @@ namespace NotesApp.View
             }
             else
             {
-                EditingCommands.ToggleBullets.Execute(null, richTextBoxContent);
                 richTextBoxContent.Selection.ApplyPropertyValue(Inline.FontStyleProperty, FontStyles.Normal);
             }
 
@@ -195,7 +194,6 @@ namespace NotesApp.View
             if (isButtonChecked)
             {
                 richTextBoxContent.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, TextDecorations.Underline);
-                //EditingCommands.ToggleBullets.Execute(null, richTextBoxContent); BULLET LIST WORKS
             }
             else
             {
@@ -283,7 +281,66 @@ namespace NotesApp.View
 
         private void btnWindowState_Click(object sender, RoutedEventArgs e)
         {
-           this.WindowState = WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
+            this.WindowState = WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
+        }
+
+        private void alignLeftButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.AlignLeft.Execute(null, richTextBoxContent);
+        }
+
+        private void alignCenterButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.AlignCenter.Execute(null, richTextBoxContent);
+        }
+
+        private void alignJustifyButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.AlignJustify.Execute(null, richTextBoxContent);
+        }
+
+        private void alignRightButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.AlignRight.Execute(null, richTextBoxContent);
+        }
+
+        private void orderedListButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.ToggleNumbering.Execute(null, richTextBoxContent);
+        }
+
+        private void unorderedListButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.ToggleBullets.Execute(null, richTextBoxContent);
+        }
+
+        private void imageButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void subscriptButton_Click(object sender, RoutedEventArgs e)
+        {
+            if ((BaselineAlignment)richTextBoxContent.Selection.GetPropertyValue(Inline.BaselineAlignmentProperty) == BaselineAlignment.Subscript)
+            {
+                richTextBoxContent.Selection.ApplyPropertyValue(Inline.BaselineAlignmentProperty, BaselineAlignment.Baseline);
+            }
+            else
+            {
+                richTextBoxContent.Selection.ApplyPropertyValue(Inline.BaselineAlignmentProperty, BaselineAlignment.Subscript);
+            }
+        }
+
+        private void superscriptButton_Click(object sender, RoutedEventArgs e)
+        {
+            if ((BaselineAlignment)richTextBoxContent.Selection.GetPropertyValue(Inline.BaselineAlignmentProperty) == BaselineAlignment.Superscript)
+            {
+                richTextBoxContent.Selection.ApplyPropertyValue(Inline.BaselineAlignmentProperty, BaselineAlignment.Baseline);
+            }
+            else
+            {
+                richTextBoxContent.Selection.ApplyPropertyValue(Inline.BaselineAlignmentProperty, BaselineAlignment.Superscript);
+            }
         }
     }
 }
