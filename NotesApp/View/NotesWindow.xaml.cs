@@ -1,4 +1,5 @@
-﻿using NotesApp.Model;
+﻿using Microsoft.Win32;
+using NotesApp.Model;
 using NotesApp.View.UserControls;
 using NotesApp.ViewModel;
 using NotesApp.ViewModel.Helpers;
@@ -21,6 +22,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Net.WebRequestMethods;
 
 namespace NotesApp.View
 {
@@ -118,7 +121,7 @@ namespace NotesApp.View
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         bool isRecognizing = false;
@@ -235,7 +238,7 @@ namespace NotesApp.View
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -316,10 +319,24 @@ namespace NotesApp.View
 
         private void imageButton_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.bmp;*.jpg;*.jpeg;*.png;*.gif;*.tiff;...";
 
+            openFileDialog.DefaultExt = ".bmp";
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string filePath = openFileDialog.FileName;
+                new InlineUIContainer
+                (new System.Windows.Controls.Image()
+                {
+                    Source = new BitmapImage(new Uri(filePath, UriKind.RelativeOrAbsolute))
+                }
+                , richTextBoxContent.CaretPosition);
+            }
         }
 
-        private void subscriptButton_Click(object sender, RoutedEventArgs e)
+            private void subscriptButton_Click(object sender, RoutedEventArgs e)
         {
             if ((BaselineAlignment)richTextBoxContent.Selection.GetPropertyValue(Inline.BaselineAlignmentProperty) == BaselineAlignment.Subscript)
             {
