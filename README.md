@@ -1,5 +1,5 @@
 # NotesApp
 
 //TODO 
-write a proper README file
+write a proper README
 
