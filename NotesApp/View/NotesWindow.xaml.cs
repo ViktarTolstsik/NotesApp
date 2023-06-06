@@ -2,6 +2,7 @@
 using NotesApp.Model;
 using NotesApp.View.UserControls;
 using NotesApp.ViewModel;
+using NotesApp.ViewModel.Commands;
 using NotesApp.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
@@ -87,6 +88,16 @@ namespace NotesApp.View
             {
                 viewModel.GetNotebooks();
                 UserNameWelcome.Text = App.UserName;
+
+                var notebookControls = FindNotebookControls(NotebooksListView);
+
+                foreach (NotebookControl item in notebookControls)
+                {
+                        Button EditButton = (Button)item.FindName("EditNotebookButton");
+                        Button DeleteButton = (Button)item.FindName("DeleteNotebookButton");
+                        DeleteButton.Visibility = Visibility.Hidden;
+                        EditButton.SetBinding(Button.CommandProperty, new Binding("EditCommand"));
+                }
             }
 
         }
