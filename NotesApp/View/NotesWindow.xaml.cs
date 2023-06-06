@@ -257,7 +257,8 @@ namespace NotesApp.View
             listItem.EditNotebookButton.Visibility = Visibility.Visible;
             listItem.DeleteNotebookButton.Visibility = Visibility.Visible;
 
-            listItem.EditNotebookButton.Click += new RoutedEventHandler(EditActionsAssign); 
+            listItem.EditNotebookButton.Click += new RoutedEventHandler(EditActionsAssign);
+            listItem.DeleteNotebookButton.Click += new RoutedEventHandler(DeleteActionsAssign);
 
             var notebookControls = FindNotebookControls(NotebooksListView);
 
@@ -276,6 +277,20 @@ namespace NotesApp.View
         private void EditActionsAssign(object sender, RoutedEventArgs e)
         {
             viewModel.StartEditing();
+        }
+
+        private void DeleteActionsAssign(object sender, RoutedEventArgs e)
+        {
+
+            if (MessageBox.Show("Do you want to delete this notebook?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+            {
+                //do no stuff
+            }
+            else
+            {
+                viewModel.DeleteNotebook(sender as Notebook);
+            }
+
         }
 
         private List<NotebookControl> FindNotebookControls(DependencyObject parent)

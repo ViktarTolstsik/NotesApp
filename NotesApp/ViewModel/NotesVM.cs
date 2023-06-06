@@ -128,6 +128,12 @@ namespace NotesApp.ViewModel
 			}
 		}
 
+        public async void DeleteNotebook(Notebook notebook)
+        {
+            await DatabaseHelper.Delete(notebook);
+            GetNotebooks();
+        }
+
         private async void GetNotes()
         {
 			if (SelectedNotebook != null)
