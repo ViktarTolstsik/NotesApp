@@ -6,6 +6,7 @@ using NotesApp.ViewModel.Commands;
 using NotesApp.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -89,18 +90,10 @@ namespace NotesApp.View
                 viewModel.GetNotebooks();
                 UserNameWelcome.Text = App.UserName;
 
-                var notebookControls = FindNotebookControls(NotebooksListView);
-
-                foreach (NotebookControl item in notebookControls)
-                {
-                        Button EditButton = (Button)item.FindName("EditNotebookButton");
-                        Button DeleteButton = (Button)item.FindName("DeleteNotebookButton");
-                        DeleteButton.Visibility = Visibility.Hidden;
-                        EditButton.SetBinding(Button.CommandProperty, new Binding("EditCommand"));
-                }
             }
 
         }
+
 
         private void ViewModel_SelectedNoteChanged(object? sender, EventArgs e)
         {
@@ -264,6 +257,8 @@ namespace NotesApp.View
             listItem.EditNotebookButton.Visibility = Visibility.Visible;
             listItem.DeleteNotebookButton.Visibility = Visibility.Visible;
 
+            listItem.EditNotebookButton.Click += new RoutedEventHandler(EditActionsAssign); 
+
             var notebookControls = FindNotebookControls(NotebooksListView);
 
             foreach (NotebookControl item in notebookControls)
@@ -276,6 +271,11 @@ namespace NotesApp.View
                     otherEditButton.Visibility = Visibility.Hidden;
                 }
             }
+        }
+
+        private void EditActionsAssign(object sender, RoutedEventArgs e)
+        {
+            viewModel.StartEditing();
         }
 
         private List<NotebookControl> FindNotebookControls(DependencyObject parent)

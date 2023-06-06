@@ -54,6 +54,17 @@ namespace NotesApp.ViewModel
             }
 		}
 
+		private Visibility altVis;
+
+		public Visibility AltVis
+        {
+			get { return altVis; }
+			set { altVis = value;
+                OnPropertyChanged("AltVis");
+            }
+		}
+
+
 		public ObservableCollection<Note> Notes { get; set; }
 		public NewNotebookCommand NewNotebookCommand { get; set; }
 		public NewNoteCommand NewNoteCommand { get; set; }
@@ -137,12 +148,14 @@ namespace NotesApp.ViewModel
 		public void StartEditing()
 		{
 			IsVisible = Visibility.Visible;
+			AltVis = Visibility.Collapsed;
 		}
         public async void StopEditing(Notebook notebook)
         {
             IsVisible = Visibility.Collapsed;
 			await DatabaseHelper.Update(notebook);
 			GetNotebooks();
+            AltVis = Visibility.Visible;
         }
     }
 }

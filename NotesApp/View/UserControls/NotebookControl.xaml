@@ -32,7 +32,8 @@
                    VerticalAlignment="Center"
                    Grid.Column="1"
                    MaxWidth="240"
-                   TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
+                   TextWrapping="Wrap" TextTrimming="CharacterEllipsis"
+                   Visibility="{Binding AltVis}"/>
         <Button Grid.Column="2" Height="20" VerticalAlignment="Stretch"
                 Background="Transparent" BorderThickness="0"
                 Style="{DynamicResource EditButtonStyle}"

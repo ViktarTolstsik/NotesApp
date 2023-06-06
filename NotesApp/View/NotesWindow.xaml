@@ -201,7 +201,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <uc:NotebookControl Notebook="{Binding}" MouseDown="OnNotebookMouseDown"  x:Name="NotebookItem">
+                                    <uc:NotebookControl Notebook="{Binding}" MouseDown="OnNotebookMouseDown"  x:Name="NotebookItem" Grid.ColumnSpan="2">
                                         <uc:NotebookControl.ContextMenu>
                                             <ContextMenu>
                                                 <MenuItem Header="Rename"
@@ -209,15 +209,14 @@
                                             </ContextMenu>
                                         </uc:NotebookControl.ContextMenu>
                                     </uc:NotebookControl>
-                                    <TextBox Text="{Binding Name, Mode=TwoWay}" 
-                                 Visibility="{Binding Source={StaticResource vm},Path=IsVisible}"
-                                 Height="20">
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="LostFocus">
-                                                <i:InvokeCommandAction Command="{Binding Source={StaticResource vm}, Path=EndEditingCommand}"
-                                                           CommandParameter="{Binding}"/>
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
+                                    <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                         Visibility="{Binding Source={StaticResource vm},Path=IsVisible}"
+                                         Height="20" Grid.Column="0">
+                                        <TextBox.InputBindings>
+                                            <KeyBinding Command="{Binding Source={StaticResource vm}, Path=EndEditingCommand}"
+                                                        CommandParameter="{Binding}" 
+                                                        Key="Enter" />
+                                        </TextBox.InputBindings>
                                     </TextBox>
                                 </Grid>
                             </DataTemplate>
