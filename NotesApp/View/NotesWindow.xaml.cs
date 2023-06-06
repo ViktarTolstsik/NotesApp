@@ -253,12 +253,13 @@ namespace NotesApp.View
         }
         private void OnNotebookMouseDown(object sender, MouseButtonEventArgs e)
         {
+            Notebook notebook = sender as Notebook;
             NotebookControl listItem = (NotebookControl)sender;
             listItem.EditNotebookButton.Visibility = Visibility.Visible;
             listItem.DeleteNotebookButton.Visibility = Visibility.Visible;
 
             listItem.EditNotebookButton.Click += new RoutedEventHandler(EditActionsAssign);
-            listItem.DeleteNotebookButton.Click += new RoutedEventHandler(DeleteActionsAssign);
+            listItem.DeleteNotebookButton.Click += new RoutedEventHandler(DeleteActionsAssign(listItem.DeleteNotebookButton, e, notebook));
 
             var notebookControls = FindNotebookControls(NotebooksListView);
 
@@ -279,7 +280,7 @@ namespace NotesApp.View
             viewModel.StartEditing();
         }
 
-        private void DeleteActionsAssign(object sender, RoutedEventArgs e)
+        private void DeleteActionsAssign(object sender, RoutedEventArgs e, Notebook notebook)
         {
 
             if (MessageBox.Show("Do you want to delete this notebook?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
@@ -288,7 +289,7 @@ namespace NotesApp.View
             }
             else
             {
-                viewModel.DeleteNotebook(sender as Notebook);
+                viewModel.DeleteNotebook(notebook);
             }
 
         }
