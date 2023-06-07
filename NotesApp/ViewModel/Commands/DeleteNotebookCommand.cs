@@ -22,7 +22,7 @@ namespace NotesApp.ViewModel.Commands
         {
             Notebook selectedNotebook = parameter as Notebook;
 
-            if (MessageBox.Show("Do you want to delete this notebook?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) != MessageBoxResult.No && selectedNotebook != null)
+            if (MessageBox.Show("Delete this notebook?","Attention", MessageBoxButton.YesNo, MessageBoxImage.Warning) != MessageBoxResult.No && selectedNotebook != null)
             {
                 return true;
             }
