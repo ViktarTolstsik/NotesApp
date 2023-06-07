@@ -253,14 +253,12 @@ namespace NotesApp.View
         }
         private void OnNotebookMouseDown(object sender, MouseButtonEventArgs e)
         {
-            Notebook notebook = sender as Notebook;
             NotebookControl listItem = (NotebookControl)sender;
             listItem.EditNotebookButton.Visibility = Visibility.Visible;
             listItem.DeleteNotebookButton.Visibility = Visibility.Visible;
 
             listItem.EditNotebookButton.Click += new RoutedEventHandler(EditActionsAssign);
-            listItem.DeleteNotebookButton.InputBindings.Add(new MouseBinding(viewModel.DeleteNotebookCommand, new MouseGesture(MouseAction.LeftClick)));
-            listItem.DeleteNotebookButton.CommandParameter = notebook;
+            listItem.DeleteNotebookButton.InputBindings.Add(new MouseBinding(viewModel.DeleteNotebookCommand, new MouseGesture(MouseAction.LeftClick)) { CommandParameter = listItem.DataContext});
             //listItem.DeleteNotebookButton.Command = viewModel.DeleteNotebookCommand;
 
             var notebookControls = FindNotebookControls(NotebooksListView);
