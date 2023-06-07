@@ -70,8 +70,9 @@ namespace NotesApp.ViewModel
 		public NewNoteCommand NewNoteCommand { get; set; }
 		public EditCommand EditCommand { get; set; }
 		public EndEditingCommand EndEditingCommand { get; set; }
+        public	DeleteNotebookCommand DeleteNotebookCommand { get; set; }
 
-		public event PropertyChangedEventHandler? PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 		public event EventHandler SelectedNoteChanged;
 
         public NotesVM()
@@ -80,6 +81,7 @@ namespace NotesApp.ViewModel
 			NewNotebookCommand = new NewNotebookCommand(this);
 			EditCommand = new EditCommand(this);
 			EndEditingCommand = new EndEditingCommand(this);
+			DeleteNotebookCommand = new DeleteNotebookCommand(this);
 
 			Notebooks = new ObservableCollection<Notebook>();
 			Notes = new ObservableCollection<Note>();

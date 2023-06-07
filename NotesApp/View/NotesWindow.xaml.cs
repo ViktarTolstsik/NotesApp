@@ -259,7 +259,9 @@ namespace NotesApp.View
             listItem.DeleteNotebookButton.Visibility = Visibility.Visible;
 
             listItem.EditNotebookButton.Click += new RoutedEventHandler(EditActionsAssign);
-            listItem.DeleteNotebookButton.Click += new RoutedEventHandler(DeleteActionsAssign(listItem.DeleteNotebookButton, e, notebook));
+            listItem.DeleteNotebookButton.InputBindings.Add(new MouseBinding(viewModel.DeleteNotebookCommand, new MouseGesture(MouseAction.LeftClick)));
+            listItem.DeleteNotebookButton.CommandParameter = notebook;
+            //listItem.DeleteNotebookButton.Command = viewModel.DeleteNotebookCommand;
 
             var notebookControls = FindNotebookControls(NotebooksListView);
 
@@ -280,19 +282,19 @@ namespace NotesApp.View
             viewModel.StartEditing();
         }
 
-        private void DeleteActionsAssign(object sender, RoutedEventArgs e, Notebook notebook)
-        {
+        //private void DeleteActionsAssign(object sender, RoutedEventArgs e, Notebook notebook)
+        //{
 
-            if (MessageBox.Show("Do you want to delete this notebook?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
-            {
-                //do no stuff
-            }
-            else
-            {
-                viewModel.DeleteNotebook(notebook);
-            }
+        //    if (MessageBox.Show("Do you want to delete this notebook?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+        //    {
+        //        //do no stuff
+        //    }
+        //    else
+        //    {
+        //        viewModel.DeleteNotebook(notebook);
+        //    }
 
-        }
+        //}
 
         private List<NotebookControl> FindNotebookControls(DependencyObject parent)
         {
