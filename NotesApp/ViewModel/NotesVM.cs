@@ -134,6 +134,7 @@ namespace NotesApp.ViewModel
         {
             await DatabaseHelper.Delete(notebook);
             GetNotebooks();
+			Notes.Clear();
         }
 
         private async void GetNotes()

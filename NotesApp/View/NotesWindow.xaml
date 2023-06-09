@@ -255,6 +255,7 @@
                     </Button.Content>
                 </Button>
                 <ListView DockPanel.Dock="Left"
+                  x:Name="NotesListView"
                   Width="210"
                   BorderThickness="0"
                   Grid.Row="1"

@@ -386,5 +386,10 @@ namespace NotesApp.View
                 richTextBoxContent.Selection.ApplyPropertyValue(Inline.BaselineAlignmentProperty, BaselineAlignment.Superscript);
             }
         }
+
+        //private void NotebookItem_LostFocus(object sender, RoutedEventArgs e)
+        //{
+        //    NotesListView.Items.Clear();
+        //}
     }
 }
