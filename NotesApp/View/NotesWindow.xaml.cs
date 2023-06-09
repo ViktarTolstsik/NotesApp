@@ -387,9 +387,5 @@ namespace NotesApp.View
             }
         }
 
-        //private void NotebookItem_LostFocus(object sender, RoutedEventArgs e)
-        //{
-        //    NotesListView.Items.Clear();
-        //}
     }
 }
