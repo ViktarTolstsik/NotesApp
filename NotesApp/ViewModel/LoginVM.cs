@@ -198,6 +198,7 @@ namespace NotesApp.ViewModel
             bool result = await FirebaseAuthHelper.Register(User);
             if (result)
             {
+                App.UserName = User.Username;
                 Authenticated?.Invoke(this, new EventArgs());
             }
         }
