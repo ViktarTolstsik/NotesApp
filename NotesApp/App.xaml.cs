@@ -15,5 +15,6 @@ namespace NotesApp
     {
         public static string UserId = string.Empty;
         public static string UserName = string.Empty;
+        public static string WelcomeMessagePath = System.IO.Path.Combine(Environment.CurrentDirectory, $"WelcomeMessage.rtf");
     }
 }

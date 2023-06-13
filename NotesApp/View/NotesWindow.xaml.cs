@@ -71,13 +71,16 @@ namespace NotesApp.View
             List<double> fontSizes = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 24, 28, 32 };
             fontSizeComboBox.ItemsSource = fontSizes;
             NoteToolBar.IsEnabled = false;
-            richTextBoxContent.AppendText("Welcome to NoteWorthy!");
-            TextRange textRange = new TextRange(richTextBoxContent.Document.ContentStart, richTextBoxContent.Document.ContentEnd);
-            textRange.ApplyPropertyValue(TextElement.FontSizeProperty, fontSizes[10]);
-            textRange.ApplyPropertyValue(Paragraph.TextAlignmentProperty, TextAlignment.Center);
-            textRange.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);
-            textRange.ApplyPropertyValue(TextElement.ForegroundProperty, new SolidColorBrush(System.Windows.Media.Color.FromRgb(12, 49, 103)));
-            richTextBoxContent.IsEnabled = false;
+            if (!string.IsNullOrEmpty(App.WelcomeMessagePath))
+            {
+                using (FileStream filestream = new FileStream(App.WelcomeMessagePath, FileMode.Open))
+                {
+                    var contents = new TextRange(richTextBoxContent.Document.ContentStart, richTextBoxContent.Document.ContentEnd);
+                    contents.Load(filestream, DataFormats.XamlPackage);
+                    filestream.Close();
+                };
+            }
+            //richTextBoxContent.IsEnabled = false;
             statusTextBlock.Visibility = Visibility.Hidden;
         }
 
@@ -105,7 +108,8 @@ namespace NotesApp.View
                     using (FileStream filestream = new FileStream(viewModel.SelectedNote.FileLocation, FileMode.Open))
                     {
                         var contents = new TextRange(richTextBoxContent.Document.ContentStart, richTextBoxContent.Document.ContentEnd);
-                        contents.Load(filestream, DataFormats.Rtf);
+                        contents.Load(filestream, DataFormats.XamlPackage);
+                        filestream.Close();
                     };
 
                 }
@@ -231,9 +235,12 @@ namespace NotesApp.View
             viewModel.SelectedNote.FileLocation = rtfFile;
             await DatabaseHelper.Update(viewModel.SelectedNote);
 
-            FileStream fileStream = new FileStream(rtfFile, FileMode.Create);
-            var contents = new TextRange(richTextBoxContent.Document.ContentStart, richTextBoxContent.Document.ContentEnd);
-            contents.Save(fileStream, DataFormats.Rtf);
+            using (FileStream fileStream = new FileStream(rtfFile, FileMode.Create))
+            {
+                var contents = new TextRange(richTextBoxContent.Document.ContentStart, richTextBoxContent.Document.ContentEnd);
+                contents.Save(fileStream, DataFormats.XamlPackage);
+                fileStream.Close();
+            }
         }
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
