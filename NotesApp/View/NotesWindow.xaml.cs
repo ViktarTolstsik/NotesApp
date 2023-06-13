@@ -280,6 +280,9 @@ namespace NotesApp.View
                     otherEditButton.Visibility = Visibility.Hidden;
                 }
             }
+
+            NotesListView.SelectedItems.Clear();
+            CheckFocus();
         }
 
         private void EditActionsAssign(object sender, RoutedEventArgs e)
@@ -394,5 +397,17 @@ namespace NotesApp.View
             }
         }
 
+        private void NotesListView_LostFocus(object sender, RoutedEventArgs e)
+        {
+            CheckFocus();
+        }
+
+        private void CheckFocus()
+        {
+            if (NotesListView.SelectedItems.Count == 0)
+            {
+                richTextBoxContent.IsEnabled = false;
+            }
+        }
     }
 }
