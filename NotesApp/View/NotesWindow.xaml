@@ -436,6 +436,7 @@
                          Grid.Row="2"
                          Grid.ColumnSpan="3"
                          Margin="0,5,5,5"
+                         Padding="15"
                          BorderThickness="0" Background="Snow"/>
             </Grid>
         </DockPanel>

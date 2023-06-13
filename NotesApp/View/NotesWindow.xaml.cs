@@ -80,7 +80,7 @@ namespace NotesApp.View
                     filestream.Close();
                 };
             }
-            //richTextBoxContent.IsEnabled = false;
+            richTextBoxContent.Focusable = false;
             statusTextBlock.Visibility = Visibility.Hidden;
         }
 
@@ -265,7 +265,7 @@ namespace NotesApp.View
             listItem.DeleteNotebookButton.Visibility = Visibility.Visible;
 
             listItem.EditNotebookButton.Click += new RoutedEventHandler(EditActionsAssign);
-            listItem.DeleteNotebookButton.InputBindings.Add(new MouseBinding(viewModel.DeleteNotebookCommand, new MouseGesture(MouseAction.LeftClick)) { CommandParameter = listItem.DataContext});
+            listItem.DeleteNotebookButton.InputBindings.Add(new MouseBinding(viewModel.DeleteNotebookCommand, new MouseGesture(MouseAction.LeftClick)) { CommandParameter = listItem.DataContext });
             //listItem.DeleteNotebookButton.Command = viewModel.DeleteNotebookCommand;
 
             var notebookControls = FindNotebookControls(NotebooksListView);
@@ -373,7 +373,7 @@ namespace NotesApp.View
             }
         }
 
-            private void subscriptButton_Click(object sender, RoutedEventArgs e)
+        private void subscriptButton_Click(object sender, RoutedEventArgs e)
         {
             if ((BaselineAlignment)richTextBoxContent.Selection.GetPropertyValue(Inline.BaselineAlignmentProperty) == BaselineAlignment.Subscript)
             {
@@ -407,6 +407,10 @@ namespace NotesApp.View
             if (NotesListView.SelectedItems.Count == 0)
             {
                 richTextBoxContent.IsEnabled = false;
+            }
+            else
+            {
+                richTextBoxContent.Focusable = true;
             }
         }
     }
