@@ -364,26 +364,32 @@ namespace NotesApp.View
             if (openFileDialog.ShowDialog() == true)
             {
                 string filePath = openFileDialog.FileName;
-                //new InlineUIContainer
+                new InlineUIContainer
                 //(new System.Windows.Controls.Image()
                 //{
                 //    Source = new BitmapImage(new Uri(filePath, UriKind.RelativeOrAbsolute)),
                 //    Margin = new Thickness(60, 0, 60, 0)
                 //}
-                //, richTextBoxContent.CaretPosition);
-                InlineUIContainer container = new InlineUIContainer();
-                Border border = new Border()
+                (new Border()
                 {
                     CornerRadius = new CornerRadius(10),
-                    Background = new ImageBrush(new BitmapImage(new Uri(filePath, UriKind.RelativeOrAbsolute))) { Stretch = Stretch.UniformToFill},
-                    Margin = new Thickness(60, 0, 60, 0),
-                    Width = 600,
-                    Height = 400
-                };
+                    Background = new ImageBrush(new BitmapImage(new Uri(filePath, UriKind.RelativeOrAbsolute))) { Stretch = Stretch.UniformToFill },
+                    Margin = new Thickness(60, 0, 60, 0)
+                }
+                , richTextBoxContent.CaretPosition);
+                //InlineUIContainer container = new InlineUIContainer();
+                //Border border = new Border()
+                //{
+                //    CornerRadius = new CornerRadius(10),
+                //    Background = new ImageBrush(new BitmapImage(new Uri(filePath, UriKind.RelativeOrAbsolute))) { Stretch = Stretch.UniformToFill},
+                //    Margin = new Thickness(60, 0, 60, 0),
+                //    Width = 750,
+                //    Height = 500
+                //};
 
-                container.Child = border;
-                richTextBoxContent.CaretPosition.InsertTextInRun("");
-                richTextBoxContent.CaretPosition.Paragraph.Inlines.Add(container);
+                //container.Child = border;
+                //richTextBoxContent.CaretPosition.InsertTextInRun("");
+                //richTextBoxContent.CaretPosition.Paragraph.Inlines.Add(container);
             }
         }
 
