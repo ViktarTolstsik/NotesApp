@@ -15,6 +15,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation.Peers;
+using System.Windows.Automation.Provider;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
@@ -417,11 +419,6 @@ namespace NotesApp.View
             }
         }
 
-        private void NotesListView_LostFocus(object sender, RoutedEventArgs e)
-        {
-            CheckFocus();
-        }
-
         private void CheckFocus()
         {
             if (NotesListView.SelectedItems.Count == 0)
@@ -431,7 +428,14 @@ namespace NotesApp.View
             else
             {
                 richTextBoxContent.Focusable = true;
+                richTextBoxContent.Focus();
+                MessageBox.Show(richTextBoxContent.CaretPosition.ToString());
             }
+        }
+
+        private void NotesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CheckFocus();
         }
     }
 }

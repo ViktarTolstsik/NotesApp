@@ -261,7 +261,7 @@
                   Grid.Row="1"
                   SelectedValue="{Binding SelectedNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   ItemsSource="{Binding Notes}" Background="{x:Null}"
-                          LostFocus="NotesListView_LostFocus">
+                          SelectionChanged="NotesListView_SelectionChanged">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <uc:NoteControl Note="{Binding}"/>
