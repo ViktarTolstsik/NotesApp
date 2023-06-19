@@ -429,7 +429,7 @@ namespace NotesApp.View
             {
                 richTextBoxContent.Focusable = true;
                 richTextBoxContent.Focus();
-                MessageBox.Show(richTextBoxContent.CaretPosition.ToString());
+                MessageBox.Show(richTextBoxContent.CaretPosition.);
             }
         }
 
