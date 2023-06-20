@@ -33,6 +33,7 @@
     <None Remove="Images\power_alt.png" />
     <None Remove="Images\trash.png" />
     <None Remove="Resources\password.ttf" />
+    <None Remove="WelcomeMessage.rtf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -95,6 +96,9 @@
     <Resource Include="Images\power_alt.png" />
     <Resource Include="Images\trash.png" />
     <Resource Include="Resources\password.ttf" />
+    <Resource Include="WelcomeMessage.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
