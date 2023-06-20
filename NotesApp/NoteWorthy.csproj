@@ -96,9 +96,9 @@
     <Resource Include="Images\power_alt.png" />
     <Resource Include="Images\trash.png" />
     <Resource Include="Resources\password.ttf" />
-    <Resource Include="WelcomeMessage.rtf">
+    <Content Include="WelcomeMessage.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

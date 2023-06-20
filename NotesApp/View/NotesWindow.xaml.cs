@@ -292,20 +292,6 @@ namespace NotesApp.View
             viewModel.StartEditing();
         }
 
-        //private void DeleteActionsAssign(object sender, RoutedEventArgs e, Notebook notebook)
-        //{
-
-        //    if (MessageBox.Show("Do you want to delete this notebook?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
-        //    {
-        //        //do no stuff
-        //    }
-        //    else
-        //    {
-        //        viewModel.DeleteNotebook(notebook);
-        //    }
-
-        //}
-
         private List<NotebookControl> FindNotebookControls(DependencyObject parent)
         {
             var list = new List<NotebookControl> { };
@@ -367,15 +353,9 @@ namespace NotesApp.View
             {
                 string filePath = openFileDialog.FileName;
                 new InlineUIContainer
-                //(new System.Windows.Controls.Image()
-                //{
-                //    Source = new BitmapImage(new Uri(filePath, UriKind.RelativeOrAbsolute)),
-                //    Margin = new Thickness(60, 0, 60, 0)
-                //}
-                (new Border()
+                (new System.Windows.Controls.Image()
                 {
-                    CornerRadius = new CornerRadius(10),
-                    Background = new ImageBrush(new BitmapImage(new Uri(filePath, UriKind.RelativeOrAbsolute))) { Stretch = Stretch.UniformToFill },
+                    Source = new BitmapImage(new Uri(filePath, UriKind.RelativeOrAbsolute)),
                     Margin = new Thickness(60, 0, 60, 0)
                 }
                 , richTextBoxContent.CaretPosition);
