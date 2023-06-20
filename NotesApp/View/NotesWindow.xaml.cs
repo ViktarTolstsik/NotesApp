@@ -428,9 +428,8 @@ namespace NotesApp.View
             else
             {
                 richTextBoxContent.Focusable = true;
-                richTextBoxContent.Focus();
-                MessageBox.Show(richTextBoxContent.CaretPosition.);
             }
+
         }
 
         private void NotesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -5,6 +5,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>View\NoteWorthy.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -32,6 +33,10 @@
     <None Remove="Images\power_alt.png" />
     <None Remove="Images\trash.png" />
     <None Remove="Resources\password.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="View\NoteWorthy.ico" />
   </ItemGroup>
 
   <ItemGroup>
