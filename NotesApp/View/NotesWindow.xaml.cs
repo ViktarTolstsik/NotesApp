@@ -359,19 +359,6 @@ namespace NotesApp.View
                     Margin = new Thickness(60, 0, 60, 0)
                 }
                 , richTextBoxContent.CaretPosition);
-                //InlineUIContainer container = new InlineUIContainer();
-                //Border border = new Border()
-                //{
-                //    CornerRadius = new CornerRadius(10),
-                //    Background = new ImageBrush(new BitmapImage(new Uri(filePath, UriKind.RelativeOrAbsolute))) { Stretch = Stretch.UniformToFill},
-                //    Margin = new Thickness(60, 0, 60, 0),
-                //    Width = 750,
-                //    Height = 500
-                //};
-
-                //container.Child = border;
-                //richTextBoxContent.CaretPosition.InsertTextInRun("");
-                //richTextBoxContent.CaretPosition.Paragraph.Inlines.Add(container);
             }
         }
 
